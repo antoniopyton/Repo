@@ -1,0 +1,48 @@
+main {
+
+    max-width: 45vw;
+    font-family: 'Rubik', sans-serif;
+    margin-left: 25%;
+    margin-right: 25%;
+
+}
+.logo {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 150px;
+}
+
+.back {
+    color: green;
+    padding: 10px;
+    background-color: rgb(226, 226, 226);
+    text-align: center;
+}
+
+html { font-size:100%; }
+
+.orange {
+    color: orange;
+}
+
+
+hr {
+    height: 2px;
+    border: none;
+    width: 80%;
+    background-color: #C4F3F2;;
+    }
+.hr1 {
+    height: 2px;
+    border: none;
+    width: 100%;
+        background-color: yellow;;
+        }
+h1 {
+    font-size: 300%;
+    text-align: center;
+}
+.back h4 {
+    border-top: 2px solid rgb(207, 214, 109)
+}
