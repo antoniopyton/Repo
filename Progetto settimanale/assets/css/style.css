@@ -3,6 +3,7 @@ body {
     padding: 0;
     margin: 0;
     text-align: center;
+    font-family: 'Open Sans', sans-serif;
 }
 
 /* HEADER */
@@ -13,8 +14,9 @@ body {
 }
 
 .logo {
-    width: 200px;
-
+    width: 150px;
+    align-items: center;
+    padding: 1.65rem;
 
 }
 
@@ -23,9 +25,18 @@ body {
     padding: 30px;
     text-align: center;
     background-image: url(../images/banner.jpg);
+    background-repeat: no-repeat;
     background-size: cover;
 
 
+}
+
+h1,
+h2,
+h3,
+h4 {
+    font-family: 'Montserrat Bold', sans-serif;
+    color: #25a2c3;
 }
 
 .testa h1 {
@@ -38,23 +49,33 @@ body {
 }
 
 /* Button Head */
-.button {
-    background-color: chocolate;
+#button {
+    background-color: #f04c2f;
     border-radius: 5px 5px;
     padding: 10px;
     width: 100px;
     color: white;
     text-transform: uppercase;
+    font-weight: bold;
+    text-decoration: none;
+
 
 }
 
 /*Main*/
+
+
+p {
+    font-size: 20px;
+}
+
 h3 {
     color: #25a2c3;
     font-size: 30px;
     text-align: center;
 
 }
+
 .divuno p {
     text-align: center;
     font-size: 20px;
@@ -68,12 +89,11 @@ h3 {
 }
 
 .divtre {
-    margin: 0;
+    margin: 0px;
     color: white;
     padding: 30px;
     text-align: center;
-    background-color: red;
-    text-transform: uppercase;
+    background-color: #e22d0e;
     font-weight: bold;
 }
 
@@ -82,15 +102,46 @@ h3 {
 }
 
 .divquattro {
+    margin: 20px;
+    text-align: center;
+    width: 90%;
     margin-top: 40px;
+    border: 1px solid rgb(233, 233, 233);
+    border-radius: 5px;
+
 }
+
 .notebook {
     margin: 20px;
     border-radius: 50%;
 }
 
-fieldset img {
-    max-width: 100%;
-    align-items: center;
+.img {
+    object-fit: contain;
+    width: 100%;
+}
 
+/*footer*/
+#foot {
+    margin: 0;
+    color: white;
+    padding: 30px;
+    text-align: center;
+    background-color: #25a2c3ed;
+}
+
+#foot h3 {
+    color: white;
+}
+
+footer a:link,
+a:visited {
+    color: white;
+
+
+}
+
+Hr {
+    Margin-left: 30%;
+    Margin-right: 30%;
 }
