@@ -1,0 +1,96 @@
+/* Your styles here */
+body {
+    padding: 0;
+    margin: 0;
+    text-align: center;
+}
+
+/* HEADER */
+.pretesta {
+    background-color: black;
+    display: block;
+
+}
+
+.logo {
+    width: 200px;
+
+
+}
+
+.testa {
+
+    padding: 30px;
+    text-align: center;
+    background-image: url(../images/banner.jpg);
+    background-size: cover;
+
+
+}
+
+.testa h1 {
+    color: #25a2c3;
+    font-size: 45px;
+}
+
+.testa p {
+    font-size: 30px;
+}
+
+/* Button Head */
+.button {
+    background-color: chocolate;
+    border-radius: 5px 5px;
+    padding: 10px;
+    width: 100px;
+    color: white;
+    text-transform: uppercase;
+
+}
+
+/*Main*/
+h3 {
+    color: #25a2c3;
+    font-size: 30px;
+    text-align: center;
+
+}
+.divuno p {
+    text-align: center;
+    font-size: 20px;
+
+}
+
+.divdue p {
+    text-align: center;
+    font-size: 20px;
+
+}
+
+.divtre {
+    margin: 0;
+    color: white;
+    padding: 30px;
+    text-align: center;
+    background-color: red;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+.divtre h3 {
+    color: white;
+}
+
+.divquattro {
+    margin-top: 40px;
+}
+.notebook {
+    margin: 20px;
+    border-radius: 50%;
+}
+
+fieldset img {
+    max-width: 100%;
+    align-items: center;
+
+}

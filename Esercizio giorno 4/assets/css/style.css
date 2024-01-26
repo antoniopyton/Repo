@@ -1,0 +1,116 @@
+/* IMPOSTAZIONI GENERALI */
+body {
+    font-family: Poppins, 'Helvetica neue', sans-serif;
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    background-image: url(/assets/img/sfondo.png);
+    background-repeat: repeat;
+    background-position: center;
+}
+
+/* HEADER */
+
+.testa {
+
+    margin: 20px;
+    padding: 30px;
+    text-align: center;
+    color: white;
+    background-image: linear-gradient(rgba(0, 160, 198, 1), rgba(3, 109, 134, 1));
+    background-repeat: repeat;
+    background-position: center;
+    box-shadow: 0px 8px 10px black;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+.divuno ul li {
+    list-style: none;
+}
+
+
+.listauno ul li a:link,
+.listauno ul li a:visited {
+    color: white;
+    text-decoration: none;
+
+
+}
+
+/* MAIN */
+code {
+    background-color: #E3E3E3;
+
+}
+
+main {
+    padding: 30px;
+    margin: 20px;
+    text-align: center;
+    background-image: white;
+    background-color: white;
+    box-shadow: 0px 8px 10px;
+    ;
+
+
+}
+
+
+/* ELEMENTI NEL MAIN - ARTICLE */
+
+/* TABELLE */
+table {
+    border-collapse: collapse;
+
+}
+
+thead {
+    text-align: center;
+    vertical-align: middle;
+    background-color: rgb(6, 82, 196);
+
+}
+
+th {
+    font-weight: 300;
+    padding: 5px;
+}
+
+tbody {
+    text-align: center;
+    vertical-align: middle;
+
+}
+
+table tr:nth-child(even) {
+    background-color: lightgrey;
+}
+
+tr {
+    padding: 5px;
+    border: 1px 1px grey;
+}
+
+table tr:last-child {
+    border-bottom: 2px solid rgb(6, 82, 196);
+}
+.bordi {
+    border-radius: 10%;
+    width: 500px;
+
+}
+
+/* FORM */
+fieldset {
+    padding: 20px;
+    margin: 1%;
+    width: 200px;
+    text-align: center;
+    bor
+
+
+}
+/* ELEMENTI NELL' ASIDE */
+
+/* FOOTER */
