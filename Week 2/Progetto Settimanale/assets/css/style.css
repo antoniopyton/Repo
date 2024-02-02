@@ -1,0 +1,179 @@
+/* Your styles here */
+
+
+/*body*/
+body {
+    color: #393d41;
+    font-family: 'Open Sans', Arial, Helvetica, sans-serif;
+    font-size: 1.2rem;
+    line-height: 1.65;
+    text-align: center;
+    margin: 0;
+}
+
+/*Headings*/
+
+h1,
+h2,
+h3,
+h4 {
+    color: white;
+}
+
+/*Header*/
+
+header {
+    background-color: #E9EDEE;
+}
+
+.logo {
+    width: 10%;
+
+}
+
+#logo {
+    background-color: #222F3F;
+    text-align: left;
+}
+
+
+.menu {
+    text-align: left;
+}
+
+.menu p {
+    display: inline;
+    margin: 5px;
+    text-size-adjust: 10px;
+
+}
+
+nav {
+    background-color: #364759;
+}
+
+nav p {
+    font-size: 14px;
+    color: white;
+}
+
+.orange {
+    margin: 30px;
+    background-color: #F56600;
+}
+
+.back {
+    margin: 30px;
+    background-image: url('../images/bg-image.png');
+    background-size: cover;
+    line-height: 50px;
+
+
+}
+
+/*Main*/
+main {
+    background-color: #E9EDEE;
+}
+
+section {
+    margin: 0 auto;
+    width: 96%;
+    text-align: left;
+    font-size: small;
+}
+
+.article {
+    border: 1px solid rgb(233, 233, 233);
+    background-color: white;
+}
+
+main h3 {
+    color: black;   
+    font-size: 20px;
+
+}
+
+.p {
+    font-size: 15px;
+    margin: 15px;
+    color: #19555E;
+}
+
+main h3,
+p {
+    display: inline-block;
+    font-weight: bold;
+
+}
+
+.schede {
+    display: inline-block;
+    width: 300px;
+    height: 400px;
+    margin: 20px 30px;
+    max-width: 100%;
+    border-radius: 15px;
+    box-shadow: 5px 5px 10px rgb(172, 172, 172);
+    background-position: center;
+    background-size: cover;
+}
+
+#img1 {
+    background-image: url('../images/img_1.jpg');
+}
+
+#img2 {
+    background-image: url('../images/img_2.jpg');
+}
+
+#img3 {
+    background-image: url('../images/img_3.jpg');
+}
+
+#img4 {
+    background-image: url('../images/img_4.jpg');
+}
+
+.art23 {
+    font-weight: bold;
+    font-size: 20px;
+    text-align: center;
+}
+
+.art23 p:nth-child(3) {
+    font-size: 15px;
+    color: #19555E;
+}
+
+.immagini {
+    margin: 30px;
+    width: 96%;
+}
+
+/*Footer*/
+
+#footer {
+    background-color: #364759;
+    text-align: center;
+    line-height: 3em;
+
+}
+
+#button {
+    color: white;
+}
+
+.foot2 {
+    background-color: #222F3F;
+    text-align: center;
+    line-height: 10em;
+
+}
+
+.logo2 {
+    text-align: center;
+    padding-top: 50px;
+    width: 10%;
+
+}

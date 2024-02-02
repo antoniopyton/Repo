@@ -100,10 +100,10 @@ console.log(check3and7(10));
 
 /* SCRIVI QUI LA TUA RISPOSTA */
 
-function reverseString(invertito = "") {
+function reverseString(invertito) {
     let nuovaStringa = invertito.split("");
     let nuovaStringa2 = "";
-    for (let i=0; i < nuovaStringa.length; i++) {
+    for (let i=nuovaStringa.length; i < nuovaStringa.length; i++) {
 
     }
 }
