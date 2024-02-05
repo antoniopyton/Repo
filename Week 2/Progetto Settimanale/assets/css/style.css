@@ -109,6 +109,7 @@ p {
 
 .schede {
     display: inline-block;
+
     width: 300px;
     height: 400px;
     margin: 20px 30px;
