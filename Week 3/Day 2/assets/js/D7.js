@@ -2,6 +2,8 @@
   Scrivi una funzione per concatenare due stringhe ricevute come parametri, selezionando solamente i primi 2 caratteri della
   prima e gli ultimi 3 della seconda. Converti la stringa risultante in maiuscolo e mostrala con un console.log().
 */
+const string1 = "Prima";
+const string2 = "Parola";
 
 const esercizioUno = (str1, str2) => {
 
@@ -17,8 +19,6 @@ const esercizioUno = (str1, str2) => {
   console.log(maiuscolo);
 };
 
-const string1 = "Prima";
-const string2 = "Parola";
 
 esercizioUno(string1, string2);
 
@@ -40,11 +40,13 @@ const esercizioDue = () => {
 return array;
 }
 
+console.log(esercizioDue());
+
 
 /* ESERCIZIO 3 (filter)
   Scrivi una funzione per ricavare solamente i valori PARI da un array composto da soli valori numerici
 */
-
+const arrayNumeri = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 const trovaValoriPari = (array) => {
 
   const valoriPari = array.filter(numero => numero % 2 === 0);
@@ -52,7 +54,7 @@ const trovaValoriPari = (array) => {
 };
 
 
-const arrayNumeri = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+
 const valoriPari = trovaValoriPari(arrayNumeri);
 console.log(valoriPari);
 
@@ -60,7 +62,7 @@ console.log(valoriPari);
 /* ESERCIZIO 4 (forEach)
   Scrivi una funzione per sommare i numeri contenuti in un array
 */
-
+const arrayNumerico = [1, 2, 3, 4, 5];
 const sommArray = (array) => {
   let somma = 0;
 
@@ -72,8 +74,8 @@ const sommArray = (array) => {
   return somma;
 };
 
-const arrayNumerico = [1, 2, 3, 4, 5];
-const risultatoSomma = sommaArray(arrayNumerico);
+
+const risultatoSomma = sommArray(arrayNumerico);
 console.log(risultatoSomma);
 
 
@@ -81,14 +83,16 @@ console.log(risultatoSomma);
   Scrivi una funzione per sommare i numeri contenuti in un array
 */
 
-const sommaArray = (array) => {
+/*const sommaArray = (array) => {
   let somma = array.reduce((acc, numero) => acc + numero, 0)
   return somma;
-}
 
+  
+}
 const arrayEsCinque = [1, 2, 3, 4, 5];
 const Somma = sommaArray(arrayEsCinque);
-console.log(somma);
+console.log(somma);*/
+
 
 /* ESERCIZIO 6 (map)
   Scrivi una funzione che, dato un array di soli numeri e un numero n come parametri, ritorni un secondo array con tutti i valori del precedente incrementati di n
@@ -102,6 +106,22 @@ console.log(somma);
 /* ESERCIZIO 8 (forEach o for)
   Scrivi una funzione per creare un array contenente tutti i valori DISPARI da 1 a 99.
 */
+
+function dispari() {
+  let arrayTutti = [];
+  for (let i =0; i < 99; i++) {
+    arrayTutti.push(i);
+  }
+  let arrayDispari = [];
+  arrayTutti.forEach(element => {
+    if(element % 2 !== 0) {
+      arrayDispari.push(element);
+    }
+  });
+  return arrayDispari;
+}
+
+console.log(dispari());
 
 /* Questo array di film verrà usato negli esercizi a seguire. Non modificarlo e scorri oltre per riprendere gli esercizi :) */
 const movies = [
@@ -216,12 +236,27 @@ const movies = [
     Type: 'movie',
     Poster:
       'https://m.media-amazon.com/images/M/MV5BMTc5MDE2ODcwNV5BMl5BanBnXkFtZTgwMzI2NzQ2NzM@._V1_SX300.jpg',
-  },
+      Trailer:
+			'<iframe width="560" height="315" src="https://www.youtube.com/embed/5xIdeeTKXcI?si=pU8xCLyJCOHI3bP_" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>',
+	},
 ]
 
 /* ESERCIZIO 9 (forEach)
   Scrivi una funzione per trovare il film più vecchio nell'array fornito.
 */
+
+function piuVecchio() {
+  let anno = 2100;
+  movies.forEach((element) => {
+    if (Number(element.Year) < anno) {
+      anno = Number (element.Year);
+    }
+
+  });
+  console.log(anno);
+}
+
+piuVecchio();
 
 /* ESERCIZIO 10
   Scrivi una funzione per ottenere il numero di film contenuti nell'array fornito.
@@ -242,6 +277,27 @@ const movies = [
 /* ESERCIZIO 14 (find)
   Scrivi una funzione per ottenere dall'array fornito uno specifico film (la funzione riceve un imdbID come parametro).
 */
+
+const elenco = document.getElementById('elenco');
+
+movies.forEach(element => {
+	let option = document.createElement('option');
+	option.setAttribute('value', element.imdbID);
+	option.innerText = element.Title;
+	elenco.appendChild(option);
+});
+
+document.getElementById('scegli').addEventListener('click', function() {
+	let imdbID = elenco.value;
+	const filmScelto = movies.find((element) => {
+		return element.imdbID === imdbID;
+	});
+	console.log(filmScelto);
+	document.getElementById('titolo').innerText = filmScelto.Title;
+	document.getElementById('anno').innerText = `Anno di produzione: ${filmScelto.Year}`;
+	document.getElementById('locandina').innerHTML = `<img src="${filmScelto.Poster}" alt="locandina ${filmScelto.Title}" />`;
+	document.getElementById('trailer').innerHTML = filmScelto.Trailer;
+});
 
 /* ESERCIZIO 15 (findIndex)
   Scrivi una funzione per ottenere dall'array fornito l'indice del primo film uscito nell'anno fornito come parametro.
