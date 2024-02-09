@@ -35,17 +35,16 @@ changePcontent();
  Scrivi una funzione che cambi la proprietà href di ogni link (tranne quello nel footer) con il valore https://www.google.com
 */
 
-const changeUrls = function () {
-    let link = document.querySelectorAll("a")
-    for (let i = 0; i < link.length; i++) {
-        const footer = link[i].closest('footer');
+function changeUrls() {
 
-        if (!footer) {
-            link[i].href = 'https://google.com'
-        }
-    }
+    var links = document.querySelectorAll('a');
+
+   for (var i = 0; i < links.length; i++) {
+       links[i].href = 'https://www.google.com/';
+   }
 }
-changeUrls();
+
+changeUrls()
 
 /* ESERCIZIO 5
  Scrivi una funzione che aggiunga un nuovo elemento lista alla seconda lista non ordinata
@@ -94,7 +93,7 @@ const paintItGreen = function () {
  Scrivi una funzione che rimuova l'ultima lettera dall'h1 ogni volta che l'utente lo clicca
 */
 
-const makeItClickable = function () { 
+/*const makeItClickable = function () { 
     const h1 = document.getElementById('h1')[0]
     h1.addEventListener('click', function(e)) {
         e.preventDefault();

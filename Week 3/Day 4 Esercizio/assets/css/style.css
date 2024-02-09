@@ -1,0 +1,35 @@
+html,
+body {
+	margin: 0;
+	padding: 50px;
+	box-sizing: border-box;
+	background-color: #4c4c74;
+	color: #ebebeb;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    text-align: center;
+}
+
+.cella {
+	display: inline-block;
+	width: 9%;
+	height: 130px;
+	position: relative;
+	border: 1px solid white;
+	border-radius: 30%;
+	cursor: pointer;
+    text-align: center;
+    margin: 5px;
+}
+
+.cella span {
+    position: absolute;
+    font-size: x-large;
+    text-align: center;
+    top: 50%;
+    left: 50%;
+    transform: (-50%, -50%);
+}
+
+.numero-uscito {
+    background-color: red;
+}
