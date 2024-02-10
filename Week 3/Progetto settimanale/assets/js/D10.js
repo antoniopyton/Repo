@@ -331,26 +331,50 @@ console.log(whatDayIsIt());
 */
 
 
-deleteProp = (oggetto, string) => {
+// deleteProp = (oggetto, string) => {
+//   if (oggetto[string]) {
+//     delete oggetto [string];
+//   }
+//   return oggetto;
 
-
-}
+// }
+// console.log(deleteProp());
 
 /* ESERCIZIO 12
   Scrivi una funzione chiamata "newestMovie" che trova il film più recente nell'array "movies" fornito.
 */
 
 newestMovie = () => {
+  let filmPiuRecente = 1900;
+  let object;
+  for (let i= 0; i < movies.length; i++) {
+    let anno = parseInt(movies[i].Year);
+    if (anno > filmPiuRecente) {
+      filmPiuRecente = anno;
+      object = movies[i];
+    }
+
+  }
+return object;
 
 }
 
+console.log(newestMovie());
 /* ESERCIZIO 13
   Scrivi una funzione chiamata countMovies che ritorna il numero di film contenuti nell'array "movies" fornito.
 */
 
 countMovies = () => {
-
+  let conto = 0;
+  for (let i = 0; i < movies.length; i++) {
+    if (movies[i].Type = "movie") {
+      conto++;
+    }
+  }
+return conto;
 }
+
+console.log(countMovies());
 
 /* ESERCIZIO 14
   Scrivi una funzione chiamata "onlyTheYears" che crea un array con solamente gli anni di uscita dei film contenuti nell'array "movies" fornito.
@@ -446,55 +470,82 @@ console.log(removeIndex(5));
 /* ESERCIZIO 20
   Scrivi una funzione per selezionare l'elemento dotato di id "container" all'interno della pagina.
 */
-h1 = () => {
+selezionaId = () => {
   const titolo = document.getElementById("container").innerText = "HTML e JS";
   console.log(titolo);
 }
-h1();
+selezionaId();
  
 
 
 /* ESERCIZIO 21
   Scrivi una funzione per selezionare ogni tag <td> all'interno della pagina.
 */
-td = () => {
+selezionaTag = () => {
   const testo = document.getElementsByTagName('td').innerText ="Testo nuovo";
   return testo;
 }
-td();
+selezionaTag();
 
 /* ESERCIZIO 22
   Scrivi una funzione che, tramite un ciclo, stampa in console il testo contenuto in ogni tag <td> all'interno della pagina.
 */
 
-const testo = document.createElement
-
 testoNuovo = () => {
-  const testo = "antonio";
-}
+  const testo = selezionaTag("td");
+  for(let i = 0; i < testo.length; i++) {
+    console.log(testo[i].innerText);
+  }
+};
 
+testoNuovo();
 
 /* ESERCIZIO 23
   Scrivi una funzione per aggiungere un background di colore rosso a ogni link all'interno della pagina.
 */
 
+coloreLink = (colore) => {
+  const link = document.getElementsByTagName("a");
+  for( let i = 0; i < link.length; i++) {
+    link[i].style.backgroundColor = colore;
+  }
+};
 
-
+coloreLink("#2293cd");
 /* ESERCIZIO 24
   Scrivi una funzione per aggiungere un nuovo elemento alla lista non ordinata con id "myList".
 */
 
 nuovoElemento = () => {
-  const nuovoValore = document.createElement
-}
+  const list = document.getElementById("myList");
+  const nuovoTesto = document.createElement("li");
+  nuovoTesto.innerText = "Nuovo Testo";
+  list.appendChild(nuovoTesto);
+};
 
+nuovoElemento();
 /* ESERCIZIO 25
   Scrivi una funzione per svuotare la lista non ordinata con id "myList".
 */
 
+svuotaLista = () => {
+  const list = document.getElementById("myList");
+  list.innerHTML = ("")
+
+}
+svuotaLista();
+
 /* ESERCIZIO 26
   Scrivi una funzione per aggiungere ad ogni tag <tr> la classe CSS "test"
 */
+
+aggiungiClasse = () => {
+  let tag = document.getElementsByTagName("tr");
+  for(let i = 0; i < tag.length; i++) {
+    tag[i].classList.add("test");
+  }
+};
+aggiungiClasse();
 
 // [EXTRA] JS Avanzato
 
