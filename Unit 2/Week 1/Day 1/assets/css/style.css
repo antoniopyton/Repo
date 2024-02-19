@@ -262,9 +262,15 @@ footer a {
         padding: 0;
     }
     
+    header div {
+        width: 74%;
+        display: inline-block;
+    }
    header nav {
     display: inline;
     text-align: right;
+    width: 20%;
+    margin-left: 0;
     
    }
    header a {
