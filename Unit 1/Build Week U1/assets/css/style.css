@@ -1,0 +1,22 @@
+body {
+    color: white;
+    background-image: url(../img/bg.jpg);
+    background-size: cover;
+    font-family: 'Outfit', sans-serif;
+    box-sizing: border-box;
+    font-size: 1.2rem;
+    line-height: 1.65;
+
+}
+section p,
+ul,
+li,
+li b,
+label,
+input[type="text"] {
+font-family: 'Inter', sans-serif;
+}
+
+#logo img {
+    width: 20%;
+}
