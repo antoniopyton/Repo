@@ -1,0 +1,51 @@
+body, html {
+    margin: 20px;
+    font-family: "Indie Flower", cursive;
+    font-size: 20px;
+    background-color: #666666;
+    font-weight: 400;
+    font-style: normal;
+    text-align: center;
+}
+
+.container {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.giallo {
+    background: linear-gradient(to bottom, #F8F8C6, #BDBEA2);
+    padding: 10px;
+    border: 1px ;
+    rotate: -5deg;
+}
+
+
+.verde {
+    background: linear-gradient(to bottom, #CAFACA, #9EB5A1 );
+    padding: 10px;
+    border: 1px ;
+    rotate: 3deg;
+}
+
+.viola {
+    background: linear-gradient(to bottom, #C6C6F1, #8B8C9B);
+    padding: 10px;
+    border: 1px ;
+    rotate: -8deg;
+}
+
+.giallo, .verde, .viola {
+    width: 18%;
+    margin: 20px;
+    height: 18vw;
+    flex-direction: column;
+    box-shadow: 3px 3px 7px 0;
+    cursor: pointer;
+
+}
+
+.giallo:hover, .verde:hover, .viola:hover {
+    rotate: 0deg;
+    scale: 1.2;
+}
