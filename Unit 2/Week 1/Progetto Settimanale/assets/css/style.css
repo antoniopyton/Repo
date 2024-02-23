@@ -1,0 +1,199 @@
+html, body {
+    margin: 0;
+    padding: 0;
+    font-family: "Roboto", sans-serif;
+    box-sizing: border-box;
+    
+}
+/*Header*/
+header {
+    padding-left: 10px;
+    background-color: #FFC017;
+    height: 80px;
+
+}
+
+.header {
+    display: flex;
+    justify-content: space-around;
+}
+
+.img {
+    display: flex;
+}
+
+.menu {
+    display: flex;
+}
+.menu div {
+    padding: 15px;
+}
+
+.menu .pulsante {
+    width: 130px;
+}
+
+.pulsante {
+    padding: 0;
+    color: white;
+    background-color: black;
+    border-radius: 70px;
+    width: 15%;
+    text-align: center;
+}
+
+hr {
+    margin: 0;
+    color: gray;
+}
+/*Main*/
+main {
+    height: 600px;
+}
+
+.main {
+    display: flex;
+    flex-direction: column;
+    padding-left: 80px;
+    background-color: #FFC017;
+    height: 400px;
+    
+}
+
+h1 {
+    margin: 0;
+    padding-top: 50px;
+    font-family: "Spectral", serif;
+  font-size: 4em;
+  font-weight: 600;
+  font-style: normal;
+}
+
+.main p {
+    margin: 0;
+    font-size: 1.3em;
+    width: 45%;
+}
+
+/*Section*/
+section {
+    margin: 0 80px;
+}
+
+.number {
+    font-size: 1.8rem;
+    font-weight: 700;
+    opacity: 0.1;
+    margin-top: 15px;
+}
+
+.preArticoli {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.flex {
+    display: flex;
+    width: 33%;
+    
+}
+
+blockquote {
+    margin-left: 20px;
+    font-weight: bold;
+    font-size: 0.8em;
+}
+
+blockquote p {
+    font-weight: 300;
+    color: gray;
+}
+
+.trending {
+    display: flex;
+    flex-direction: column;
+}
+
+.star {
+    display: flex;
+}
+
+.trending .star img {
+    width: 6%;
+}
+
+.trendingImg {
+    margin-top: 15px;
+    float: left;
+}
+
+.trending h5 {
+    text-transform: uppercase;
+    margin-bottom: 0;
+} 
+
+.preArticoli img {
+    width: 15%;
+    border-radius: 50%;
+}
+
+
+.preArticoli .quadrate {
+    width: 8%;
+    border-radius: 10px;
+}
+
+/*Section seconda*/
+
+.secondaParte {
+    display: flex;
+    flex-direction: row;
+
+}
+
+.column {
+    display: flex;
+    flex-direction: column;
+    font-size: 1.3rem;
+    width: 500px;
+}
+
+.articoli {
+    display: flex;
+    flex-direction: column;
+}
+
+.articoli img {
+    width: 15%;
+    border-radius: 50%;
+}
+
+
+.articoli .quadrate {
+    width: 8%;
+    border-radius: 10px;
+}
+
+blockquote span {
+    background-color: #f7f7f7de;
+    padding: 0 10px;
+    font-size: 10px;
+    border-radius: 30px;
+}
+
+/*Aside e Footer*/
+aside {
+    display: flex;
+}
+.aside {
+    display: flex;
+}
+
+.primaLista {
+    display: flex;
+}
+
+.footer {
+    display: flex;
+}

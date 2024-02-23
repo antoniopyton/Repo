@@ -11,6 +11,7 @@ body, html {
 .container {
     display: flex;
     flex-wrap: wrap;
+
 }
 
 .giallo {
@@ -42,10 +43,25 @@ body, html {
     flex-direction: column;
     box-shadow: 3px 3px 7px 0;
     cursor: pointer;
+    animation: muzzu 3s;
+
 
 }
 
 .giallo:hover, .verde:hover, .viola:hover {
     rotate: 0deg;
     scale: 1.2;
+}
+
+
+@keyframes muzzu {
+    0% {
+        transform: translate(-20%, -20%) rotate(-45deg);
+    }
+    50% {
+        transform: translate(20%, -10%) rotate(-25deg);
+    }
+    100% {
+        transform: translate(-50%,  100%) rotate(0deg);
+    }
 }
