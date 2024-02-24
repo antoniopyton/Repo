@@ -26,6 +26,8 @@ header {
 
 .menu {
     display: flex;
+    justify-content: center;
+    align-items: center;
 }
 .menu div {
     padding: 15px;
@@ -36,13 +38,20 @@ header {
     width: 130px;
 }
 
-.pulsante {
+.pulsante1 {
+    display: flex;
     padding: 0;
     color: white;
     background-color: black;
     border-radius: 70px;
-    width: 15%;
+    width: 90px;
+    height: 15px;
     text-align: center;
+    justify-content: center;
+}
+
+.pulsante1 p {
+    margin: 0;
 }
 
 /*Main*/
@@ -62,16 +71,17 @@ main {
 
 .titolo {
     width: 90%;
+    height: 350px;
     display: flex;
     flex-direction: column;
+    justify-content: space-evenly;
 }
 
 h1 {
     margin: 0;
-    padding-top: 50px;
     font-family: "Spectral", serif;
-  font-size: 4em;
-  font-weight: 600;
+  font-size: 5em;
+  font-weight: 400;
   font-style: normal;
 }
 
@@ -80,6 +90,24 @@ h1 {
     font-size: 1.3em;
     width: 45%;
 }
+
+.pulsante2 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+    color: white;
+    background-color: black;
+    border-radius: 70px;
+    width: 150px;
+    height: 50px;
+    
+}
+
+.pulsante1 h4 {
+    margin: 0;
+}
+
 
 .emme {
     width: 50%;
@@ -171,7 +199,8 @@ blockquote p {
 .column {
     display: flex;
     flex-direction: row;
-    width: 65%;
+    justify-content: space-between;
+    width: 850px;
 }
 
 .articoliDue {
@@ -182,12 +211,14 @@ blockquote p {
 .fotoArticoli {
     display: flex;
     justify-content: center;
-    width: 50%;
+    width: 200px;
+    height: 140px;
 }
 
 .fotoArticoli img {
     margin-top: 30px;
-    width: 100%;
+    width: 200px;
+    height: 140px;
 
 }
 
@@ -210,18 +241,44 @@ blockquote span {
 }
 
 /*Aside e Footer*/
-aside {
+#aside {
+    width: 450px;
     display: flex;
-}
-.aside {
-    display: flex;
-}
-
-.primaLista {
-    display: flex;
-    border-bottom: 1px solid gray;
+    flex-direction: column;
+    margin-left: 80px;
+    margin-top: 30px;
 }
 
-.footer {
+#primaParte {
+    margin-left: 10px;
+}
+
+#secondaParte {
     display: flex;
+    flex-wrap: wrap;
+    padding-bottom: 30px;
+    border-bottom: 1px solid black;
+}
+
+#secondaParte span {
+    padding: 10px 18px 10px 18px;
+    margin: 5px 10px 5px 10px;
+    background-color: rgb(240, 240, 240);
+    border-radius: 30px;
+    font-weight: 300;
+    color: rgb(109, 109, 109);
+}
+
+#terzaParte {
+    width: 400px;
+    margin-top: 30px;
+    display: flex;
+    flex-wrap: wrap;
+    
+}
+
+#terzaParte p {
+    margin: 15px 15px 15px 15px;
+    font-weight: 300;
+    color: gray;
 }
