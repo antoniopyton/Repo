@@ -7,11 +7,14 @@ html, body {
 }
 /*Header*/
 header {
+    width: 100%;
     padding-left: 10px;
     background-color: #FFC017;
     height: 80px;
     border-bottom: 1px solid black;
-
+    position: fixed;
+    top: 0;
+    z-index: 2;
 }
 
 .header {
@@ -60,6 +63,7 @@ main {
 }
 
 .main {
+    padding-top: 60px;
     display: flex;
     padding-left: 80px;
     background-color: #FFC017;
@@ -243,14 +247,19 @@ blockquote span {
 /*Aside e Footer*/
 #aside {
     width: 450px;
+    height: max-content;
     display: flex;
     flex-direction: column;
     margin-left: 80px;
     margin-top: 30px;
+    position: sticky;
+    top: 80px;
+    z-index: 1;
 }
 
 #primaParte {
     margin-left: 10px;
+    text-transform: uppercase;
 }
 
 #secondaParte {
