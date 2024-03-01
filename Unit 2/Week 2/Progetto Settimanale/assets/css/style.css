@@ -1,0 +1,15 @@
+body, html {
+    background-color: black;
+    color: white;
+}
+
+
+.imgHover {
+    cursor: pointer;
+    opacity: 0.8;
+}
+
+.imgHover:hover {
+    scale: 1.2;
+    opacity: 1;
+}
