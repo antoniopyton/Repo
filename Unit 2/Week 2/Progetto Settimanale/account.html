@@ -8,10 +8,111 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
-    <link rel="stylesheet" href="assets/css/style.css" />
+    <!-- <link rel="stylesheet" href="assets/css/style.css" /> -->
 </head>
 
 <body>
+
+    <header>
+        <div class="container-fluid bg-black">
+            <nav class="navbar navbar-expand-lg">
+                <div class="container-fluid">
+                    <a class="navbar-brand" href="#"><img src="assets/img/netflix_logo.png" width="100" alt=""></a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                            <li class="nav-item">
+                                <a class="nav-link active" aria-current="page" href="#">Home</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">Tv Shows</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">Movies</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">Recently Addedd</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">My list</a>
+                            </li>
+                        </ul>
+
+                        <div class="d-flex">
+                            <div class="d-flex text-secondary align-items-center">
+                                <i class="bi bi-search px-3"></i>
+                                <a class="nav-link px-3" href="#">KIDS</a>
+                                <i class="bi bi-bell-fill px-3"></i>
+                            </div>
+
+                            <div class="collapse navbar-collapse me-5 pe-4" id="navbarSupportedContent">
+                                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+
+                                    <li class="nav-item dropdown">
+                                        <a class="nav-link dropdown-toggle" href="#" role="button"
+                                            data-bs-toggle="dropdown" aria-expanded="false">
+                                            <img src="assets/img/avatar.png" width="35" alt="Foto profilo">
+                                        </a>
+                                        <ul class="dropdown-menu">
+                                            <div class="d-flex">
+                                                <a href="profile.html"><img src="assets/img/avatar.png" width="35"
+                                                        class="ps-1" alt="Foto profilo"></a>
+                                                <li><a class="dropdown-item" href="profile.html">Antonio</a></li>
+                                            </div>
+                                            <a class="dropdown-item" href="profile.html">Manage Profile</a>
+                                    </li>
+                                    <li><a class="dropdown-item" href="account.html">Account</a></li>
+                                    <li><a class="dropdown-item" href="#">Help Center</a></li>
+                                    <li>
+                                        <hr class="dropdown-divider">
+                                    </li>
+                                    <li><a class="dropdown-item" href="#">Sign out Profile</a></li>
+                                </ul>
+                                </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+            </nav>
+        </div>
+    </header>
+
+
+    <main>
+        <div class="container mt-5 ">
+            <div class="row offset-2 border-bottom">
+                <h1 class="mb-4">Account</h1>
+                <hr>
+                <div class="col-5 d-flex">
+                    <div class="row">
+                        <div>
+                            <h5 class="text-secondary mt-0">MEMBERSHIP & BILLING</h5>
+                            <button type="button" class="btn btn-secondary rounded-0 px-4">Cancel
+                                Membership</button>
+                        </div>
+                        <div class="col-12 d-flex align-content-between">
+                            <div>
+                                <p><strong>acopetti99@gmail.com</strong></p>
+                                <p class="text-secondary">Password: ********</p>
+                                <p class="text-secondary">Phone: 3929259163</p>
+                            </div>
+                            <div>
+                                <a href="#">Change account email</a>
+                                <a href="#">Change Password</a>
+                                <a href="#">Change phone number</a>
+                            </div>
+                        </div>
+                        <div class="col-4"></div>
+                        <div class="col-4"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
