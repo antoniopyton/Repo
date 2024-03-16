@@ -53,7 +53,7 @@ async function recuperoDati(id) {
         const articolo = await cercaFetch(id)
         nome.innerText = articolo.name
         brand.innerText = articolo.brand
-        prezzo.innerText = articolo.price
+        prezzo.innerText = articolo.price+" €"
         descrizione.innerText = articolo.description
         imageUrl.src = articolo.imageUrl
         }

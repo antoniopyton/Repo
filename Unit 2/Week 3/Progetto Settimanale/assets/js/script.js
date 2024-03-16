@@ -64,6 +64,7 @@ internoCard = (element, col) => {
 }
 
 
+
 const generaCard = () => {
     articoli.forEach((element) => {
     const col = document.createElement("div")
