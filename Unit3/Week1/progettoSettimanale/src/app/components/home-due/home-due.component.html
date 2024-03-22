@@ -1,0 +1,17 @@
+<h3 class="text-center  mt-4">Auto in evidenza</h3>
+<div class="container d-flex justify-content-between">
+    <div class="row">
+        <div class="card col-md-6" *ngFor="let item of related" [ngClass]="item.available? 'border-5 border-success' : 'border-5 border-danger'" >
+            <img src="https://www.kimballstock.com/pix/car/p/{{item.modelImage}}" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h2 class="card-title text-center">{{item.model}}</h2>
+                <span class="badge text-bg-info mx-2">Anno:{{item.year}}</span>
+                <span class="badge text-bg-info mx-2">Prezzo:{{item.price}}</span>
+                <span class="badge fs-6" [ngClass]="{'text-success': item.available, 'text-danger': !item.available}">Pronta consegna: {{item.available ? 'Disponibile' : 'Non Disponibile'}}</span>
+                <img src="https://listcarbrands.com/wp-content/uploads/{{item.brandLogo}}" class="w-25 mt-2 mx-5" alt="">
+                <a [routerLink]="['/postDetail']" routerLinkActive="active" class="btn btn-danger ms-3">Bloccala Subito!</a>
+                <a [routerLink] = "['/', item.brand.toLowerCase()]" class="btn btn-warning ms-3">{{item.brand}}!</a>
+            </div>
+        </div>
+    </div>
+</div>
