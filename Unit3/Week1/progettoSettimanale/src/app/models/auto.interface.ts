@@ -6,5 +6,6 @@ export interface Auto {
     modelImage: string,
     year: number,
     price: number,
-    available: boolean
+    available: boolean,
+    elettrica?: boolean
 }

@@ -18,7 +18,7 @@ export class HomeUnoComponent {
     let risposta = await fetch ('assets/db.json')
     let dati = await risposta.json();
     this.auto = dati;
-    this.loghi = this.auto.slice(0, 3)
+    this.loghi = this.auto.slice(0, 4)
 
   }
 }

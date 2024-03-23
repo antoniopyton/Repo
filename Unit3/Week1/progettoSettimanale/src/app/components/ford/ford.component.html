@@ -1,9 +1,13 @@
 <h3 class="text-center fs-1  mt-4">Le nostre auto Ford</h3>
+<p class="text-center">Ford Motor Company (conosciuta più come Ford) è una casa automobilistica statunitense, fondata da Henry Ford a Dearborn (Michigan) il 16 giugno 1903.
+    È nota per aver utilizzato per la prima volta la catena di montaggio e il nastro trasportatore, in seguito adottati da numerose altre aziende e tuttora usati nelle industrie moderne. Tale fenomeno venne indicato come fordismo.
+    Le autovetture sono il prodotto principale del gruppo. In più di un secolo di attività sono stati prodotti all'incirca 170 modelli e alcuni di essi sono stati prodotti in più generazioni, come nel caso della Ford Fiesta.
+    In seguito alle crisi economiche internazionali del nuovo millennio, la Ford registrò delle gravi perdite, tanto che fu costretta a vendere tutte le case automobilistiche acquistate in precedenza e a tagliare numerosi posti di lavoro, come imposto dal piano industriale The Way Forward. Il gruppo è così composto solamente dai marchi Ford e Lincoln. Tuttavia, durante la crisi finanziaria nata nel 2008, fu anche l'unica industria automobilistica statunitense a non chiedere prestiti al governo statunitense. A partire dal 2009, la società tornò in attivo con un utile netto di 2,7 miliardi di dollari[1], che divenne di 7,149 miliardi l'anno successivo.</p>
 <div class="container d-flex justify-content-between">
     <div class="row">
         <div class="card col-md-6" *ngFor="let item of auto">
-            <img src="https://www.kimballstock.com/pix/car/p/{{item.modelImage}}" class="card-img-top" alt="...">
-            <img src="https://listcarbrands.com/wp-content/uploads/{{item.brandLogo}}" class="w-25 mx-5" alt="">
+            <img src="{{item.modelImage}}" class="card-img-top" alt="...">
+            <img src="{{item.brandLogo}}" class="w-25 mx-5" alt="">
             <div class="card-body">
                 <h5 class="card-title text-center">{{item.model}}</h5>
                 <span class="badge text-bg-info">Anno:{{item.year}}</span>

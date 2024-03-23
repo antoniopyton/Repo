@@ -2,8 +2,14 @@
     <h4>I nostri marchi</h4>
     <div class="d-flex">
         <span *ngFor="let item of loghi">
-            <div> <img src="https://listcarbrands.com/wp-content/uploads/{{item.brandLogo}}"  class="w-50" alt=""></div>
+            <div> <img src="{{item.brandLogo}}"  class="w-50" alt=""></div>
         </span>
+        <div class="row w-50">
+            <button type="button" class="btn btn-outline-warning w-50"><a class="dropdown-item" [routerLink]="['/fiat']" routerLinkActive="active" routerLinkActive="router-link-active" >Vai alle nostre auto Fiat</a></button>
+            <button type="button" class="btn btn-outline-primary w-50"><a class="dropdown-item" [routerLink]="['/ford']" routerLinkActive="active" >Vai alle nostre auto Ford</a></button>
+            <button type="button" class="btn btn-outline-secondary w-50"><a class="dropdown-item" [routerLink]="['/audi']" routerLinkActive="active" >Vai alle nostre auto Audi</a></button>
+            <button type="button" class="btn btn-outline-dark w-50"><a class="dropdown-item" [routerLink]="['/tesla']" routerLinkActive="active" >Vai alle nostre auto Tesla</a></button>
+        </div>
         
     </div>
   </div>

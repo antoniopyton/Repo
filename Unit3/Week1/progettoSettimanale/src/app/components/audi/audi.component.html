@@ -1,15 +1,27 @@
 <h3 class="text-center fs-1 mt-4">Le nostre auto Audi</h3>
+<p class="text-center">Audi AG (nota come Audi) è una casa automobilistica tedesca, fondata da August Horch nel 1909 col nome August Horch Automobilwerke GmbH, ma che già dal 1910 adottò la nuova denominazione Audi.
+Dal 1964 appartiene al Gruppo Volkswagen.
+La produzione automobilistica di serie comprende la compatta da città Audi A1 (che ha sostituito la A2, prima auto Audi con telaio portante interamente in alluminio), la media compatta A3, la berlina di fascia medio-alta (fascia Premium del segmento D) A4 (erede della 80), la berlina di gamma alta A6 (erede della 100), l'ammiraglia di lusso A8, la coupé sportiva TT e i SUV Q7 e Q5, tutti con la propria gamma, in cui sono comprese anche versioni sportive.
+
+Nel 2006 è stata lanciata l'Audi R8, una vettura sportiva ad alte prestazioni con trazione integrale, creata per fare concorrenza alle Porsche Carrera che sfrutta la base meccanica della Lamborghini Gallardo, introdotta alcuni anni prima. Vale la pena sottolineare come la trazione integrale, che dell'Audi è divenuta un simbolo fin dai tempi gloriosi dell'Audi Quattro, è stata adottata come soluzione onnipresente in tutti i modelli ad alte ed altissime prestazioni che sono legati al gruppo Volkswagen e che sfruttano soluzioni Audi.
+
+Nel marzo 2007 è stato presentato anche un modello che copre una nicchia di mercato assente da 13 anni nella gamma Audi, cioè la coupé media A5, disponibile anche nelle versioni a quattro porte e cabriolet, insieme con la sua versione sportiva S5, che secondo Walter De Silva è l'automobile più bella che abbia mai disegnato[25]. Nell'ottobre 2010 è stata immessa sul mercato anche la nuova A7, grossa coupé a quattro porte di fascia alta realizzata per fare concorrenza alle Mercedes-Benz Classe CLS ed in seguito alla BMW Serie 6 Gran Coupé.
+
+Alla base della gamma, nello stesso anno, è stata introdotta la A1, che ripropone il marchio dei quattro anelli in un segmento dove è rimasto assente da decenni, vale a dire da quando, nel 1978, è stata tolta di produzione l'Audi 50.
+
+Il 18 giugno 2018 Rupert Stadler, dal gennaio 2010 CEO di Audi, viene arrestato nell'ambito dell'inchiesta dieselgate.[26]. Al suo posto, ad interim, Bram Schot, responsabile vendite e marketing dell'azienda. Ma nel frattempo, i programmi produttivi dell'Audi proseguono in un'ottica rinnovata. E così, nella seconda metà degli anni '10 del XXI secolo, vengono sviluppate tecnologie volte al raggiungimento e alla messa in produzione delle prime vetture di serie a guida autonoma. A tale scopo, un esemplare di Audi A7 Sportback viene equipaggiata con un sistema sperimentale in grado di pilotare la vettura senza l'ausilio del conducente. Sempre nello stesso periodo, le motorizzazioni termiche vengono gradualmente sostituite da motorizzazioni ibride: alla fine del 2018 le gamme dei modelli A4, A5, A6, A7, A8, Q7 e Q8 sono costituite in tutto o in parte da motorizzazioni ibride. Non solo, ma l'anno successivo esce la prima Audi totalmente elettrica, ossia il crossover di fascia alta Audi e-tron quattro[27].
+</p>
 <div class="container d-flex justify-content-between">
     <div class="row">
         <div class="card col-md-6" *ngFor="let item of auto">
-            <img src="https://www.kimballstock.com/pix/car/p/{{item.modelImage}}" class="card-img-top" alt="...">
+            <img src="{{item.modelImage}}" class="card-img-top" alt="...">
             <img src="https://listcarbrands.com/wp-content/uploads/{{item.brandLogo}}" class="w-25 mx-5" alt="">
             <div class="card-body">
                 <h5 class="card-title text-center">{{item.model}}</h5>
                 <span class="badge text-bg-info">Anno:{{item.year}}</span>
                 <span class="badge text-bg-info">Prezzo:{{item.price}}</span>
                 <span class="badge fs-6" [ngClass]="{'text-success': item.available, 'text-danger': !item.available}">Pronta consegna: {{item.available ? 'Disponibile' : 'Non Disponibile'}}</span>
-                <a href="#" class="btn btn-success ms-3">Bloccala Subito!</a>
+                <a [routerLink]="['/postDetail']" routerLinkActive="active" class="btn btn-success ms-3">Bloccala Subito!</a>
             </div>
         </div>
     </div>

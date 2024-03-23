@@ -1,9 +1,10 @@
 <h3 class="text-center fs-1 mt-4">Le nostre auto Fiat</h3>
+<p class="text-center">Il marchio ha una lunga storia, essendo stato fondato l'11 luglio 1899 presso il Palazzo Bricherasio di Torino come casa produttrice di automobili, per poi sviluppare la propria attività in numerosi altri settori, dando vita a quello che sarebbe diventato il più importante gruppo finanziario e industriale privato italiano del XX secolo, oltreché la prima holding del Paese e, limitatamente al settore automobilistico, la maggior casa produttrice del continente europeo e terza a livello mondiale, dopo le statunitensi General Motors Co. e Ford Motor Co., per un ventennio, fino all'esplosione della crisi dell'industria automobilistica torinese iniziata alla fine degli anni ottanta</p>
 <div class="container d-flex justify-content-between">
     <div class="row">
         <div class="card col-md-6" *ngFor="let item of auto">
-            <img src="https://www.kimballstock.com/pix/car/p/{{item.modelImage}}" class="card-img-top" alt="...">
-            <img src="https://listcarbrands.com/wp-content/uploads/{{item.brandLogo}}" class="w-25 mx-5" alt="">
+            <img src="{{item.modelImage}}" class="card-img-top" alt="...">
+            <img src="{{item.brandLogo}}" class="w-25 mx-5" alt="">
             <div class="card-body">
                 <h5 class="card-title text-center">{{item.model}}</h5>
                 <span class="badge text-bg-info">Anno:{{item.year}}</span>
