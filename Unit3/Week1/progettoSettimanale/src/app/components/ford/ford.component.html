@@ -10,10 +10,10 @@
             <img src="{{item.brandLogo}}" class="w-25 mx-5" alt="">
             <div class="card-body">
                 <h5 class="card-title text-center">{{item.model}}</h5>
-                <span class="badge text-bg-info">Anno:{{item.year}}</span>
-                <span class="badge text-bg-info">Prezzo:{{item.price}}</span>
+                <span class="badge text-bg-info">Anno: {{item.year}}</span>
+                <span class="badge text-bg-info">Prezzo: {{item.price}}</span>
                 <span class="badge fs-6" [ngClass]="{'text-success': item.available, 'text-danger': !item.available}">Pronta consegna: {{item.available ? 'Disponibile' : 'Non Disponibile'}}</span>
-                <a href="#" class="btn btn-success ms-3">Bloccala Subito!</a>
+                <a [routerLink]="['/postDetail']" routerLinkActive="active" class="btn btn-success ms-3">Bloccala Subito!</a>
             </div>
         </div>
     </div>

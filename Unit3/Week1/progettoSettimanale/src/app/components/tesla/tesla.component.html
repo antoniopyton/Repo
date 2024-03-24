@@ -3,8 +3,6 @@
 
     L'obiettivo dell'azienda è quello di "accelerare la transizione del mondo all'utilizzo di fonti di energia rinnovabili". Questo include la produzione di veicoli elettrici ad alte prestazioni orientati al mercato di massa. Fondata nel 2003 a San Carlos in California da Martin Eberhard e Marc Tarpenning, la società è cresciuta in organico fino a comprendere molti esperti mondiali di informatica e sistemi di calcolo, nel campo elettrico e dell'ingegneria elettrica ed elettronica.
     
-    Il CEO Elon Musk ha detto che immagina Tesla come una società tecnologica e una casa automobilistica indipendente, il cui fine è quello di offrire auto elettriche a prezzi accessibili al consumatore medio per promuovere l'utilizzo di fonti rinnovabili e non inquinanti.
-    
     Il 19 agosto 2015, secondo una classifica di Forbes, Tesla era l'azienda più innovativa al mondo.[4] A novembre 2018 i veicoli Tesla in circolazione hanno toccato il traguardo di 500 000 unità, percorrendo 10 miliardi di miglia.[5] Il 9 marzo 2020 ha raggiunto il traguardo di 1 milione di auto elettriche prodotte, prima fra tutte le case automobilistiche.[6] Il 25 ottobre 2021 Tesla raggiunge una capitalizzazione azionaria di 1000 miliardi di dollari dopo un maxi ordine di 100.000 Tesla Model 3 da parte di Hertz, la prima volta per una casa automobilistica.[7]</p>
 <div class="container d-flex justify-content-between">
     <div class="row">
@@ -13,10 +11,10 @@
             <img src="{{item.brandLogo}}" class="w-25 mx-5" alt="">
             <div class="card-body">
                 <h5 class="card-title text-center">{{item.model}}</h5>
-                <span class="badge text-bg-info">Anno:{{item.year}}</span>
-                <span class="badge text-bg-info">Prezzo:{{item.price}}</span>
+                <span class="badge text-bg-info">Anno: {{item.year}}</span>
+                <span class="badge text-bg-info">Prezzo: {{item.price}}</span>
                 <span class="badge fs-6" [ngClass]="{'text-success': item.available, 'text-danger': !item.available}">Pronta consegna: {{item.available ? 'Disponibile' : 'Non Disponibile'}}</span>
-                <a href="#" class="btn btn-success ms-3">Bloccala Subito!</a>
+                <a [routerLink]="['/postDetail']" routerLinkActive="active" class="btn btn-success ms-3">Bloccala Subito!</a>
             </div>
         </div>
     </div>

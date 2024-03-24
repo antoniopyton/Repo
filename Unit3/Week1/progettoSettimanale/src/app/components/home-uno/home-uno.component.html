@@ -1,15 +1,24 @@
 <div class="border-bottom text-center mt-4">
     <h4>I nostri marchi</h4>
-    <div class="d-flex">
-        <span *ngFor="let item of loghi">
-            <div> <img src="{{item.brandLogo}}"  class="w-50" alt=""></div>
+    <div class="d-flex align-content-center justify-content-center">
+        <span *ngFor="let item of fiat">
+            <div> <a [routerLink]="['/fiat']" routerLinkActive="active"><img src="{{item.brandLogo}}"  class="w-50" alt=""></a> </div>
         </span>
-        <div class="row w-50">
+        <span *ngFor="let item of ford">
+            <div> <a [routerLink]="['/ford']" routerLinkActive="active"><img src="{{item.brandLogo}}"  class="w-50" alt=""></a> </div>
+        </span>
+        <span *ngFor="let item of audi">
+            <div> <a [routerLink]="['/audi']" routerLinkActive="active"><img src="{{item.brandLogo}}"  class="w-50" alt=""></a> </div>
+        </span>
+        <span *ngFor="let item of tesla">
+            <div> <a [routerLink]="['/tesla']" routerLinkActive="active"><img src="{{item.brandLogo}}"  class="w-50" alt=""></a> </div>
+        </span>
+        <!-- <div class="row w-50">
             <button type="button" class="btn btn-outline-warning w-50"><a class="dropdown-item" [routerLink]="['/fiat']" routerLinkActive="active" routerLinkActive="router-link-active" >Vai alle nostre auto Fiat</a></button>
             <button type="button" class="btn btn-outline-primary w-50"><a class="dropdown-item" [routerLink]="['/ford']" routerLinkActive="active" >Vai alle nostre auto Ford</a></button>
             <button type="button" class="btn btn-outline-secondary w-50"><a class="dropdown-item" [routerLink]="['/audi']" routerLinkActive="active" >Vai alle nostre auto Audi</a></button>
             <button type="button" class="btn btn-outline-dark w-50"><a class="dropdown-item" [routerLink]="['/tesla']" routerLinkActive="active" >Vai alle nostre auto Tesla</a></button>
-        </div>
+        </div> -->
         
     </div>
   </div>

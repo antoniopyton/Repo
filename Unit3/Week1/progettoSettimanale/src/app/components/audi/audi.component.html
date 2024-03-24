@@ -9,7 +9,6 @@ Nel marzo 2007 è stato presentato anche un modello che copre una nicchia di mer
 
 Alla base della gamma, nello stesso anno, è stata introdotta la A1, che ripropone il marchio dei quattro anelli in un segmento dove è rimasto assente da decenni, vale a dire da quando, nel 1978, è stata tolta di produzione l'Audi 50.
 
-Il 18 giugno 2018 Rupert Stadler, dal gennaio 2010 CEO di Audi, viene arrestato nell'ambito dell'inchiesta dieselgate.[26]. Al suo posto, ad interim, Bram Schot, responsabile vendite e marketing dell'azienda. Ma nel frattempo, i programmi produttivi dell'Audi proseguono in un'ottica rinnovata. E così, nella seconda metà degli anni '10 del XXI secolo, vengono sviluppate tecnologie volte al raggiungimento e alla messa in produzione delle prime vetture di serie a guida autonoma. A tale scopo, un esemplare di Audi A7 Sportback viene equipaggiata con un sistema sperimentale in grado di pilotare la vettura senza l'ausilio del conducente. Sempre nello stesso periodo, le motorizzazioni termiche vengono gradualmente sostituite da motorizzazioni ibride: alla fine del 2018 le gamme dei modelli A4, A5, A6, A7, A8, Q7 e Q8 sono costituite in tutto o in parte da motorizzazioni ibride. Non solo, ma l'anno successivo esce la prima Audi totalmente elettrica, ossia il crossover di fascia alta Audi e-tron quattro[27].
 </p>
 <div class="container d-flex justify-content-between">
     <div class="row">
@@ -18,8 +17,8 @@ Il 18 giugno 2018 Rupert Stadler, dal gennaio 2010 CEO di Audi, viene arrestato 
             <img src="https://listcarbrands.com/wp-content/uploads/{{item.brandLogo}}" class="w-25 mx-5" alt="">
             <div class="card-body">
                 <h5 class="card-title text-center">{{item.model}}</h5>
-                <span class="badge text-bg-info">Anno:{{item.year}}</span>
-                <span class="badge text-bg-info">Prezzo:{{item.price}}</span>
+                <span class="badge text-bg-info">Anno: {{item.year}}</span>
+                <span class="badge text-bg-info">Prezzo: {{item.price}}</span>
                 <span class="badge fs-6" [ngClass]="{'text-success': item.available, 'text-danger': !item.available}">Pronta consegna: {{item.available ? 'Disponibile' : 'Non Disponibile'}}</span>
                 <a [routerLink]="['/postDetail']" routerLinkActive="active" class="btn btn-success ms-3">Bloccala Subito!</a>
             </div>
