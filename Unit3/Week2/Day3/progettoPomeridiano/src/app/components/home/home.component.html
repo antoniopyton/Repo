@@ -1,0 +1,21 @@
+<h1>Benvenuti su Shopify!!</h1>
+<div class="container">
+    <div  *ngIf="products; else loadingtemplate" class="row">
+        <div class="col-3" *ngFor="let item of products; let i = index">
+            <div class="card" style="width: 18rem;">
+                <img src="{{item.images[0]}}" class="card-img-top" alt="...">
+                <div class="card-body">
+                  <h5 class="card-title">{{item.title}}</h5>
+                  <p class="card-text">{{item.description}}</p>
+                  <a href="#" class="btn btn-outline-info">{{item.price}}€</a>
+                  <button type="button" class="ms-3 btn btn-outline-danger">Preferiti</button>
+                </div>
+              </div>
+        </div>
+    </div>
+    <ng-template #loadingtemplate>
+        <div class="spinner-border" role="status">
+            <span class="visually-hidden">Loading...</span>
+        </div>
+    </ng-template>
+</div>
