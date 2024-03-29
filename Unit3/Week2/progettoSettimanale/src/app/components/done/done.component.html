@@ -1,0 +1,6 @@
+<div class="container">
+    <div class="clOpacity border rounded-3 mt-3" *ngFor="let todo of getDone()">
+        <h2 class="fs-4">{{ todo.todo | uppercase }}</h2>
+        <p>Assigned to: {{ getName(todo.userId) }}</p>
+    </div>
+</div>

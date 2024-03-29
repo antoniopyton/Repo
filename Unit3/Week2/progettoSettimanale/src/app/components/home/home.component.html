@@ -1,0 +1,22 @@
+<h1 class="text-center text-uppercase mt-4">Welcome Antonio, whats'up today???</h1>
+<div class="mt-3 mb-3 container d-flex justify-content-center btn-group w-50">
+    <a [routerLink]="['/']" routerLinkActive="active" class="btn btn-outline-primary">Show All</a>
+    <a [routerLink]="['/done']" routerLinkActive="active" class="btn btn-outline-info" aria-current="page">Let's see
+        what we've done togheter.</a>
+    <a [routerLink]="['/users']" routerLinkActive="active" class="btn btn-outline-info">Users</a>
+    <a [routerLink]="['/todo']" routerLinkActive="active" class="btn btn-outline-danger">What's missing?</a>
+</div>
+<div class="container d-flex justify-content-center flex-column">
+    <label for="control" class="form-label h-4 text-center">To Do:</label>
+    <input type="text" class="form-control" id="control" name="control" />
+</div>
+<div class="container d-flex justify-content-center">
+    <button type="button" class="mt-5 w-25 btn btn-outline-success" (click)="addToDoList()">Invia</button>
+    <hr>
+</div>
+<div class="container">
+    <div class="clOpacity border rounded-3 mt-3" [ngClass]="{'border-success': todo.completed, 'border-danger': !todo.completed, 'clOpacity': todo.completed, 'clOpacity2': !todo.completed }" *ngFor="let todo of todos">
+        <h2 class="fs-4">{{ todo.todo | uppercase }}</h2>
+        <p>Assigned to: {{ getName(todo.userId) }}</p>
+    </div>
+</div>
