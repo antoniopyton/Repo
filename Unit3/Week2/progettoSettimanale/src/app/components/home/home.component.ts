@@ -45,4 +45,8 @@ export class HomeComponent implements OnInit {
     })
     return name
   }
+  
+  toggleCompleted(todo: any) {
+    todo.completed = !todo.completed;
+}
 }

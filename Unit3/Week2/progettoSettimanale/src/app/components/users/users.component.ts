@@ -43,4 +43,8 @@ export class UsersComponent implements OnInit {
       this.userTasksMap.set(user.id, tasksForUser);
     });
   }
+  
+  toggleTaskCompletion(userId: number, task: any) {
+    task.completed = !task.completed;
+}
 }

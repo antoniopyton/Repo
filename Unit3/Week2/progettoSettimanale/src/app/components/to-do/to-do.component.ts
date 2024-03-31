@@ -48,5 +48,8 @@ export class ToDoComponent implements OnInit {
     getTodo(): Todo[] {
       return this.todos.filter(todo => !todo.completed);
     }
+    toggleCompleted(todo: any) {
+      todo.completed = !todo.completed;
+  }
   
   }

@@ -1,6 +1,13 @@
 <div class="container">
-    <div class="clOpacity border rounded-3 mt-3" *ngFor="let todo of getTodo()">
-        <h2 class="fs-4">{{ todo.todo | uppercase }}</h2>
-        <p>Assigned to: {{ getName(todo.userId) }}</p>
+    <h1 class="mt-3 mb-5">If you're here, there's still something left to do, move on.</h1>
+    <div class="d-flex clOpacity2 border rounded-3 mt-3"
+        [ngClass]="{'clOpacity2': !todo.completed, 'border-success': todo.completed, 'border-danger': !todo.completed }"
+        *ngFor="let todo of getTodo()">
+        <input class="m-2 mt-2" type="checkbox" [checked]="todo.completed" (change)="toggleCompleted(todo)" />
+        <div>
+            <h2 class="fs-4">{{ todo.todo | uppercase }}</h2>
+            <p>Assigned to: {{ getName(todo.userId) }}</p>
+        </div>
     </div>
 </div>
+

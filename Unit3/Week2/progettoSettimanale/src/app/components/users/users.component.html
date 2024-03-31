@@ -1,9 +1,9 @@
-<div class="d-flex justify-content-center align-content-center card mb-3" style="max-width: 768px;">
-    <div class="row g-0" *ngFor="let user of users">
-        <div class="col-md-4">
+<!-- <div class="d-flex card mb-3 w-50 justify-content-center" >
+    <div class="d-flex border w-100 justify-content-center" *ngFor="let user of users">
+        <div>
             <img src="{{user.image}}" width="150px" alt="...">
         </div>
-        <div class="col-md-8">
+        <div>
             <div class="card-body">
                 <h5 class="card-title">{{user.firstName}} {{user.lastName}}</h5>
                 <p class="card-text">{{user.title}}</p>
@@ -13,6 +13,37 @@
                         <br>
                     </span>
                 </p>
+            </div>
+        </div>
+    </div>
+</div> -->
+
+<div class="card-container bg-secondary-subtle p-2">
+    <div
+        class="card d-flex shadow flex-row align-items-center gap-5 m-3"
+        *ngFor="let user of users"
+    >
+        <div class="d-flex flex-column ">
+            <h5 class="card-title text-center mt-3">
+                {{ user.firstName }} {{ user.lastName }}
+            </h5>
+            <p class=" text-center mt-2">{{user.title}}</p>
+            <p class=" text-center">{{user.email}}</p>
+            <div><img [src]="user.image" alt="User Image" /></div>
+        </div>
+        <div class="container m-5 d-flex flex-column">
+            <div
+                class="container shadow m-1 text-black p-1 w-75 d-flex align-content-center "
+                *ngFor="let task of userTasksMap.get(user.id)"
+                [ngClass]="{'bg-info': task.completed, 'bg-warning': !task.completed}"
+            >
+                <input
+                    class="m-2 mt-2"
+                    type="checkbox"
+                    [checked]="task.completed"
+                    (change)="toggleTaskCompletion(user.id, task)"
+                />
+                <p class="m-0">{{ task.todo }}</p>
             </div>
         </div>
     </div>
