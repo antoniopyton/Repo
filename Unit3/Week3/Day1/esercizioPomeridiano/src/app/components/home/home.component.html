@@ -1,0 +1,55 @@
+<div class="container mt-4">
+    <h1>Form #1</h1>
+    <form [formGroup]="homeform" (ngSubmit)="submit()">
+    <fieldset>
+      <div class="mb-3 mt-3">
+        <label for="name" class="form-label">Nome</label>
+        <input type="text" id="name" class="form-control" formControlName="name" placeholder="Inserisci un nome.." required>
+      </div>
+      <strong class="text-danger" *ngIf="!homeform.get('name')?.valid && homeform.get('name')?.touched">Inserisci un nome!</strong>
+      <div class="mb-3 mt-3">
+        <label for="surname" class="form-label">Cognome</label>
+        <input type="text" id="surname" class="form-control" formControlName="surname" placeholder="Inserisci il cognome" required>
+      </div>
+      <strong class="text-danger" *ngIf="!homeform.get('surname')?.valid && homeform.get('surname')?.touched">Inserisci un cognome!</strong>
+      <div class="mb-3 mt-3">
+        <label for="username" class="form-label">Username</label>
+        <input type="text" id="username" class="form-control" formControlName="username" placeholder="Inserisci un username" required>
+      </div>
+      <strong class="text-danger" *ngIf="!homeform.get('username')?.valid && homeform.get('username')?.touched">Inserisci un username!</strong>
+      <div class="mb-3 mt-3">
+        <label for="email" class="form-label">Email</label>
+        <input type="email" id="email" class="form-control" formControlName="email" placeholder="Inserisci una mail" required>
+      </div>
+      <strong class="text-danger" *ngIf="!homeform.get('email')?.valid && homeform.get('email')?.touched">Inserisci un email valida!</strong>
+      <div class="mb-3 mt-3">
+        <label for="password" class="form-label">Password</label>
+        <input type="password" id="password" class="form-control" formControlName="password" placeholder="Inserisci una Password" required>
+      </div>
+      <strong class="text-danger" *ngIf="!homeform.get('password')?.valid && homeform.get('password')?.touched">Inserisci una password!</strong>
+      <div class="mb-3 mt-3">
+        <label for="passconfirm" class="form-label">Conferma Password</label>
+        <input type="password" id="passconfirm" class="form-control" formControlName="passconfirm" placeholder="Conferma Password" required>
+      </div>
+      <strong class="text-danger" *ngIf="homeform.get('passconfirm')?.touched && homeform.get('password')?.value !== homeform.get('passconfirm')?.value">Password diverse!</strong>
+      <div class="mb-3 mt-3">
+        <label for="propic" class="form-label">Immagine Profilo</label>
+        <input type="url" id="propic" class="form-control" formControlName="propic" placeholder="Digita un Url.." >
+      </div>
+      <div class="form-floating mb-3 mt-3">
+        <textarea class="form-control" formControlName="biography" placeholder="Dicci qualcosa su di te" id="biography"></textarea>
+        <label for="biography" formControlName="biography">Biografia</label>
+      </div>
+      <div class="mb-3">
+        <label for="gender" class="form-label">Genere</label>
+        <select id="gender" class="form-select" formControlName="gender" required>
+          <option>Uomo</option>
+          <option>Donna</option>
+        </select>
+      </div>
+      <div class="mb-3">
+      </div>
+      <button type="submit" class="btn btn-primary" [disabled]="!homeform.valid || homeform.get('password')?.value !== homeform.get('passconfirm')?.value">Submit</button>
+    </fieldset>
+  </form>
+</div>
