@@ -1,0 +1,36 @@
+<!-- <div class="container mt-4 text-center">
+  <h1 class="text-center p-2">{{ movie.title }}</h1>
+  <div class="card h-100 text-center p-5 shadow">
+    <img
+      src="https://image.tmdb.org/t/p/w500/{{ movie.poster_path }}"
+      class="card-img-top img-fluid mx-auto"
+      alt="{{ movie.title }}, poster"
+      style="width: 50%"
+    />
+    <div class="card-body">
+      <h5 class="card-subtitle">Plot</h5>
+      <p class="card-text">{{ movie.overview }}</p>
+    </div>
+  </div>
+</div> -->
+<div class="container my-5">
+  <div class="card mb-3" >
+  <div class="row g-0">
+    <div class="col-md-4">
+      <img src="https://image.tmdb.org/t/p/w500/{{ movie.poster_path }}" class="img-fluid rounded-start" alt="...">
+    </div>
+    <div class="col-md-8 text-center">
+      <div class="card-body my-5">
+        <h1 class="card-title fw-bolder my-3">{{ movie.title }}</h1>
+        <p class="card-text fw-medium my-3 fs-2">{{ movie.overview }}</p>
+        <div class="">
+          <p class="m-2">Lingua: {{movie.original_language}}</p>
+        <p class="m-2">Anno: {{movie.release_date}}</p>
+        <p class="m-2">Media voto: {{movie.vote_average}}</p>
+        </div>
+        
+      </div>
+    </div>
+  </div>
+</div>
+</div>

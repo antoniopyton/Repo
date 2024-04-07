@@ -17,6 +17,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { UsersComponent } from './components/users/users.component';
 import { ProfileComponent } from './components/profile/profile.component';
 import { FilmComponent } from './components/film/film.component';
+import { DetailsComponent } from './components/details/details.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { FilmComponent } from './components/film/film.component';
     RegisterComponent,
     UsersComponent,
     ProfileComponent,
-    FilmComponent
+    FilmComponent,
+    DetailsComponent
   ],
   imports: [
     BrowserModule,

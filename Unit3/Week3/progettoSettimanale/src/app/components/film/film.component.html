@@ -1,35 +1,31 @@
-<div *ngIf="!film"  class="container text-center mb-4">
-    <button class="btn btn-primary" type="button" disabled>
-      <span class="spinner-grow spinner-grow-sm" aria-hidden="true"></span>
-      <span role="status">Loading...</span>
-    </button>
-  </div>
-  <div class="container mt-4">
-    <h1 class="text-center p-2 mb-3">Film popolari</h1>
-    <div class="row gy-3">
-      <div class="col-3" *ngFor="let movie of film">
-        <div class="card h-100 shadow d-flex flex-column align-items-between">
-         <div><img
-            src="https://image.tmdb.org/t/p/w500/{{ movie.poster_path }}"
-            class="card-img-top"
-            alt="{{ movie.title }}, poster"
-            style="object-fit: cover; height: 350px"
-          />
+<div *ngIf="!film" class="container text-center mb-4">
+  <button class="btn btn-primary" type="button" disabled>
+    <span class="spinner-grow spinner-grow-sm" aria-hidden="true"></span>
+    <span role="status">Loading...</span>
+  </button>
+</div>
+<div class="container mt-4">
+  <h1 class="text-center p-2 mb-3">Film popolari</h1>
+  <div class="row gy-3">
+    <div class="col-3" *ngFor="let movie of film">
+      <div class="card h-100 shadow d-flex flex-column align-items-between">
+        <div>
+          <img src="https://image.tmdb.org/t/p/w500/{{ movie.poster_path }}" class="card-img-top"
+            alt="{{ movie.title }}, poster" style="object-fit: cover; height: 350px" />
           <div class="card-body text-center">
             <div>
-                <h5 class="card-title">{{ movie.title }}</h5>
-            <p class="card-text">{{ movie.overview.slice(0, 30) }}...</p>
-            </div></div> 
-          
-          <div class="d-flex justify-content-evenly">
-             <a [routerLink]="['/movies', movie.id]" class="btn btn-primary ms-3 mb-1"
-              >Mostra dettagli</a>
-              <button class="btn btn-outline-danger mb-1"><i class="bi bi-heart-fill"></i></button>
-              
+              <h5 class="card-title">{{ movie.title }}</h5>
+              <p class="card-text">{{ movie.overview.slice(0, 30) }}...</p>
+            </div>
           </div>
-           
+          <div class="d-flex justify-content-evenly">
+            <a [routerLink]="['/details', movie.id]" class="btn btn-primary ms-3 mb-1">Mostra dettagli</a>
+            <button type="button" class="btn btn-outline-danger mb-1" data-bs-toggle="button">
+              <i class="bi bi-heart-fill"></i>
+            </button>
           </div>
         </div>
       </div>
     </div>
   </div>
+</div>

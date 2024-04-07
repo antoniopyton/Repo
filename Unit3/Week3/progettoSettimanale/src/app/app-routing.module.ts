@@ -7,6 +7,8 @@ import { Error404Component } from './components/error404/error404.component';
 import { UsersComponent } from './components/users/users.component';
 import { ProfileComponent } from './components/profile/profile.component';
 import { FilmComponent } from './components/film/film.component';
+import { AuthGuard } from './auth/auth.guard';
+import { DetailsComponent } from './components/details/details.component';
 
 const routes: Routes = [
   {
@@ -23,15 +25,23 @@ const routes: Routes = [
   },
   {
     path:"users",
-    component: UsersComponent
+    component: UsersComponent,
+    canActivate: [AuthGuard]
+  },
+  {
+    path:"details/:id",
+    component: DetailsComponent,
+    canActivate: [AuthGuard]
   },
   {
     path:"film",
-    component: FilmComponent
+    component: FilmComponent,
+    canActivate: [AuthGuard]
   },
   {
     path:"profile",
-    component: ProfileComponent
+    component: ProfileComponent,
+    canActivate: [AuthGuard]
   },
   {
     path:"error404",

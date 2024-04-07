@@ -17,6 +17,12 @@
       "password": "$2a$10$zrrRTJMiNVrBBlrz0dW1r.T2xP6cuyeTXqrvr1q23MEUjeYLUpGGG",
       "name": "Antonio Copetti",
       "id": 4
+    },
+    {
+      "email": "luigi@copetti.it",
+      "password": "$2a$10$q0QNrkmEpdSGCOqkBrJnEeadNqlXsIT.HiJl99QoxYE8QzJZuzb2O",
+      "name": "Luigi Copetti",
+      "id": 5
     }
   ],
   "favorites": [
