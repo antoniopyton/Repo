@@ -38,7 +38,7 @@ export class FilmComponent implements OnInit {
     
   }
 
-  favourites(fav: Movies) {
+  favourite(fav: Movies) {
     if (this.user) {
       let index = this.film.findIndex((value) => value.id === fav.id)
       if (index !== -1) {

@@ -14,27 +14,48 @@ import { UserService } from 'src/app/service/user.service';
 export class ProfileComponent implements OnInit {
   user!: AuthData | null;
   film!: Movies[];
-  favourites: Movies[] = []; // Initialize the favorites array
+  favourites: Movies[] = []; 
  
-  constructor(private authsrv: AuthService, private mvSrv: FilmService) {}
+  constructor(private authsrv: AuthService, private mvSrv: FilmService) {
+    this.authsrv.user$.subscribe((value) => {
+      this.user = value;
+    })
+  }
  
   ngOnInit(): void {
-     this.authsrv.user$.subscribe(async (data) => {
-       this.user = data;
-       if (data !== null) {
-        this.film = []
-         let favorites = await this.mvSrv.getFilmsFavorites(Number(data.user.id))
-         console.log(favorites)
-         for (let i=0; i < favorites.length; i++) {
-            let film = await this.mvSrv.getFilm(favorites[i].movieId).toPromise()
-            console.log(film)
-            if (film !== undefined) {
-              this.film.push(film)
-            }
-         }
-       }
-     });
+    this.authsrv.user$.subscribe(async (data) => {
+      this.user = data;
+      if (data !== null) {
+        this.loadFavorites(data.user.id);
+      }
+    });
   }
-  
- }
- 
+
+  async loadFavorites(userId: number) {
+    this.film = [];
+    let favorites = await this.mvSrv.getFilmsFavorites(userId);
+    console.log(favorites);
+    for (let i=0; i < favorites.length; i++) {
+      let film = await this.mvSrv.getFilm(favorites[i].movieId).toPromise();
+      console.log(film);
+      if (film !== undefined) {
+        film.video = true; 
+        this.film.push(film);
+      }
+    }
+  }
+  async favourite(fav: Movies) {
+    if (this.user) {
+      let index = this.film.findIndex((value) => value.id === fav.id);
+      if (index !== -1) {
+        this.film[index].video = !this.film[index].video;
+        if (!this.film[index].video) {
+          
+          this.film.splice(index, 1);
+        }
+       
+        await this.mvSrv.toggle(fav.id, Number(this.user.user.id));
+      }
+    }
+  }
+}
