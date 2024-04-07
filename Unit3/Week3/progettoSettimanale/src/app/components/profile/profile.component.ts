@@ -12,20 +12,29 @@ import { UserService } from 'src/app/service/user.service';
   styleUrls: ['./profile.component.scss']
 })
 export class ProfileComponent implements OnInit {
-  
-  user!: AuthData | null 
-  film!: Movies[]
-  favourites!: Partial<Movies[]>
-
-  constructor(private authsrv: AuthService,  private mvSrv: FilmService) {}
-
+  user!: AuthData | null;
+  film!: Movies[];
+  favourites: Movies[] = []; // Initialize the favorites array
+ 
+  constructor(private authsrv: AuthService, private mvSrv: FilmService) {}
+ 
   ngOnInit(): void {
-    this.authsrv.user$.subscribe((data) => {
-      this.user = data
-      console.log(data)
-    })
-     this.mvSrv.getFilms().subscribe((data) => {
-      this.film = data
-    })
+     this.authsrv.user$.subscribe(async (data) => {
+       this.user = data;
+       if (data !== null) {
+        this.film = []
+         let favorites = await this.mvSrv.getFilmsFavorites(Number(data.user.id))
+         console.log(favorites)
+         for (let i=0; i < favorites.length; i++) {
+            let film = await this.mvSrv.getFilm(favorites[i].movieId).toPromise()
+            console.log(film)
+            if (film !== undefined) {
+              this.film.push(film)
+            }
+         }
+       }
+     });
   }
-}
+  
+ }
+ 
