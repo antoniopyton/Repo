@@ -13,7 +13,7 @@ export class UsersComponent implements OnInit {
 
   user!: User[]  
 
-  constructor(private usrsrv: UserService) {}
+  constructor(private authsrv: AuthService, private usrsrv: UserService) {}
 
   ngOnInit(): void {
     this.usrsrv.getUser().subscribe((data) => {
