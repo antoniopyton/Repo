@@ -15,4 +15,12 @@ export class UserService {
   getUser() {
     return this.http.get<User[]>(`${this.apiUrl}users`)
   }
+
+  deleteUser(id:number){
+    return this.http.delete(`${this.apiUrl}/${id}`)
+  }
+
+  editUser(id:number, data:Partial<User>){
+    return this.http.patch(`${this.apiUrl}/${id}`, data)
+  }
 }

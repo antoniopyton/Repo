@@ -58,4 +58,8 @@ export class ProfileComponent implements OnInit {
       }
     }
   }
+  logout() {
+    this.authsrv.logout()
+  }
+
 }
