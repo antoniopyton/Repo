@@ -31,4 +31,8 @@ public abstract class ElementoMultimediale {
         this.duration = duration;
         this.volume = volume;
     }
+
+    protected void show() {
+
+    }
 }

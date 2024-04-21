@@ -1,6 +1,6 @@
 package it.epicode;
 
-public class Video  extends  ElementoMultimediale implements AudioVideo, VideoImmagine{
+public class Video  extends  ElementoMultimediale implements Riproducibile{
     private int luminosita;
     public Video(String title, int duration, int volume, int luminosita) {
         super(title, duration, volume);

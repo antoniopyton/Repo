@@ -11,9 +11,7 @@ public class Audio extends  ElementoMultimediale{
             String volume = "!".repeat(Math.max(0, this.getVolume()));
             counter++;
             System.out.println(this.getTitle() + " " + volume);
-
         }
-
     }
 
     public void alzaVolume() {
