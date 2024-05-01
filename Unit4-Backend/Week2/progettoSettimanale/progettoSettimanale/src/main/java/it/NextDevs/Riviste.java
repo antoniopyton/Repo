@@ -11,4 +11,8 @@ public class Riviste extends Catalogo {
         super(codiceISBN, titolo, annoPubblicazione, numeroPagine);
         this.periodicita = periodicita;
     }
+
+    public Periodicita getPeriodicita() {
+        return periodicita;
+    }
 }

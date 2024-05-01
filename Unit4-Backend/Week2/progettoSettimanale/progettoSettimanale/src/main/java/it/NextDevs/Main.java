@@ -1,10 +1,16 @@
 package it.NextDevs;
 
+import org.apache.commons.io.FileUtils;
+
+import java.io.File;
+import java.io.IOException;
+import java.nio.charset.Charset;
 import java.time.LocalDate;
+import java.util.List;
 
 public class Main {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws ExceptionISBNErrato {
 
         Archivio archivio = new Archivio();
         Libri libro1 = new Libri("01", "Il signore degli Anelli La Compagnia dell'anello", LocalDate.of(1996, 1, 1), 250, "Tolkien", "Fantasy");
@@ -45,7 +51,8 @@ public class Main {
         archivio.aggiuntaProdotti(rivista7);
         archivio.aggiuntaProdotti(rivista8);
 
-        archivio.rimozionePerISBN("05");
+
+        archivio.rimozionePerISBN("53");
 
         archivio.ricercaPerISBN("01");
 
@@ -54,6 +61,17 @@ public class Main {
         archivio.ricercaPerAutore("Tolkien");
 
         System.out.println(archivio);
+
+        try {
+            archivio.salvaSuDisco("newCatalogo.txt");
+            System.out.println("File salvato");
+        } catch (IOException e) {
+            System.out.println("Non è stato possibile salvare il file");
+        }
+
+
+
+
 
     }
 

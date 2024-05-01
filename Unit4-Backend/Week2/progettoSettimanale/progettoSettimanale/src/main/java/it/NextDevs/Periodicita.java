@@ -1,5 +1,19 @@
 package it.NextDevs;
 
+import java.util.HashMap;
+import java.util.Map;
+
 public enum Periodicita {
-    SETTIMANALE, MENSILE, SEMESTRALE
+    SETTIMANALE, MENSILE, SEMESTRALE;
+
+    private static final Map<String, Periodicita> stringToEnum = new HashMap<>();
+    static {
+        for (Periodicita periodicita : values()) {
+            stringToEnum.put(periodicita.toString(), periodicita);
+        }
+    }
+
+    public static Periodicita fromString(String string) {
+        return stringToEnum.get(string.toUpperCase());
+    }
 }
