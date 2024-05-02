@@ -1,6 +1,8 @@
 package epicode;
 
+import epicode.dao.IndirizzoDao;
 import epicode.dao.StudenteDao;
+import epicode.entity.Indirizzo;
 import epicode.entity.Studente;
 
 import javax.persistence.EntityManager;
@@ -9,31 +11,46 @@ import javax.persistence.Persistence;
 import java.time.LocalDate;
 
 public class Main {
-
     public static void main(String[] args) {
-
         EntityManagerFactory emf = Persistence.createEntityManagerFactory("epicode_jpa");
         EntityManager em = emf.createEntityManager();
 
         StudenteDao dao = new StudenteDao(em);
 
-        Studente s1 = new Studente();
-        s1.setNome("Antonio");
-        s1.setCognome("Copetti");
-        s1.setIndirizzo("Traversa via cittadella 15");
-        s1.setDataNascita(LocalDate.of(1999, 1, 4));
+        // !! QUESTA E PER LA LEZIONE DI JPA CRUD !!
+//        Studente s1 = new Studente();
+//        s1.setNome("Elena");
+//        s1.setCognome("Kekic");
+//
+//        s1.setDataNascita(LocalDate.of(2004, 12, 30));
+//        //dao.save(s1);
+//
+//        Studente s2 = dao.getById(2);
+//        System.out.println(s2);
+//
+//
+//        //dao.save(s2);
+//
+//        dao.delete(s2);
 
-        //dao.save(s1);
+// !! QUESTA E PER LA LEZIONE DI JPA RELATIONSHIP !!
+        Studente s3 = new Studente();
+        // mi serviva siccome indirizzo l'ho modificato in modo da diventare una tabella
+        IndirizzoDao indirizzoDao = new IndirizzoDao(em);
+        s3.setNome("Elena");
+        s3.setCognome("Kekic");
+        s3.setDataNascita(LocalDate.of(2000, 8, 26));
 
-        Studente s2 = dao.getById(1);
-        System.out.println(s2);
+        Indirizzo indirizzo = new Indirizzo();
+        indirizzo.setVia("Via dei Mille");
+        indirizzo.setComune("Trieste");
+        indirizzo.setProvincia("TS");
 
-        s2.setIndirizzo("Via Cittadella");
+        indirizzoDao.Indirizzosave(indirizzo);
 
-        //dao.save(s2);
+        s3.setIndirizzo(indirizzo);
 
-        dao.delete(s2);
-
+        dao.save(s3);
     }
-
 }
+
