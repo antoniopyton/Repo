@@ -1,36 +1,31 @@
 package epicode.dao;
 
-import epicode.entity.Studente;
+import epicode.entity.ClasseStudenti;
+import epicode.entity.Corso;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
 
-public class StudenteDao {
+public class CorsoDao {
 
     private EntityManager em;
-
-    public StudenteDao(EntityManager em) {
+    public CorsoDao(EntityManager em) {
         this.em = em;
     }
-
-    public void save(Studente studente){
+    public void save(Corso corso){
         EntityTransaction et = em.getTransaction();
         et.begin();
-        em.persist(studente);
+        em.persist(corso);
         et.commit();
     }
-
-    public Studente getById(int matricola) {
-        Studente s = em.find(Studente.class, matricola);
-
-        return s;
+    public Corso getById(int id){
+        Corso corso = em.find(Corso.class,id);
+        return corso;
     }
-
-    public void delete (Studente studente) {
+    public void delete(Corso corso){
         EntityTransaction et = em.getTransaction();
         et.begin();
-        em.remove(studente);
+        em.remove(corso);
         et.commit();
     }
-
 }

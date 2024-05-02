@@ -2,6 +2,7 @@ package epicode.entity;
 
 import javax.persistence.*;
 import java.time.LocalDate;
+import java.util.List;
 
 @Entity //solo questa annotazione farà diventare quesat una tabella
 @Table(name = "studenti") // NON è OBBLIGATORIO (serve per dare delle informazioni aggiuntive)
@@ -27,6 +28,24 @@ public class Studente {
     @JoinColumn (name = "indirizzo_id_fk")
     private Indirizzo indirizzo;
 
+    //LAto proprietario: è sempre quello many e ha la join column
+    @ManyToOne
+    @JoinColumn(name = "classe_studenti_id_fk")
+    private ClasseStudenti classeStudenti;
+
+    @ManyToMany
+    @JoinTable(name = "studenti_corsi",
+            joinColumns = @JoinColumn(name = "studenti_id"),
+            inverseJoinColumns = @JoinColumn(name = "corsi_id"))
+    private List<Corso> corsi;
+
+    public List<Corso> getCorsi() {
+        return corsi;
+    }
+
+    public void setCorsi(List<Corso> corsi) {
+        this.corsi = corsi;
+    }
 
     public Studente(int matricola, String nome, String cognome, LocalDate dataNascita, Indirizzo indirizzo) {
         this.matricola = matricola;
@@ -48,6 +67,14 @@ public class Studente {
                 ", indirizzo='" + indirizzo + '\'' +
                 ", dataNascita=" + dataNascita +
                 '}';
+    }
+
+    public ClasseStudenti getClasseStudenti() {
+        return classeStudenti;
+    }
+
+    public void setClasseStudenti(ClasseStudenti classeStudenti) {
+        this.classeStudenti = classeStudenti;
     }
 
     public Indirizzo getIndirizzo() {
