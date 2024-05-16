@@ -20,7 +20,7 @@ public class Studente {
 
     private String indirizzo;
 
-    @OneToMany(mappedBy = "studente")
+    @OneToMany(mappedBy = "studente", fetch = FetchType.EAGER)
     private List<Dispositivo> dispositivi = new ArrayList<>();
 
 

@@ -18,4 +18,12 @@ public abstract class Dispositivo {
         @JoinColumn(name = "studente_id")
         private Studente studente;
 
+        @Override
+        public String toString() {
+                return "Dispositivo{" +
+                        "id=" + id +
+                        ", nome='" + nome + '\'' +
+                        ", marca='" + marca + '\'' +
+                        '}';
+        }
 }
