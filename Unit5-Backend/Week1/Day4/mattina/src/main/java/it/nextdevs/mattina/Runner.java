@@ -26,19 +26,19 @@ public class Runner implements CommandLineRunner {
 
         ApplicationContext ctx = new AnnotationConfigApplicationContext(MattinaApplication.class);
 
-//        Studente studente = ctx.getBean("Mario", Studente.class);
-//        studenteService.inserisciStudente(studente);
-//
-//        Studente studente2 = ctx.getBean("Pippo", Studente.class);
-//        studenteService.inserisciStudente(studente2);
-//
-//        Computer computer = ctx.getBean("computer", Computer.class);
-//        computer.setStudente(studente);
-//        dispositivoService.inserisciDispositivo(computer);
-//
-//        Smartphone smartphone = ctx.getBean("smartphone", Smartphone.class);
-//        smartphone.setStudente(studente2);
-//        dispositivoService.inserisciDispositivo(smartphone);
+        Studente studente = ctx.getBean("Mario", Studente.class);
+        studenteService.inserisciStudente(studente);
+
+        Studente studente2 = ctx.getBean("Pippo", Studente.class);
+        studenteService.inserisciStudente(studente2);
+
+        Computer computer = ctx.getBean("computer", Computer.class);
+        computer.setStudente(studente);
+        dispositivoService.inserisciDispositivo(computer);
+
+        Smartphone smartphone = ctx.getBean("smartphone", Smartphone.class);
+        smartphone.setStudente(studente2);
+        dispositivoService.inserisciDispositivo(smartphone);
 
         System.out.println(studenteService.getStudentiByNome("Mario"));
 
