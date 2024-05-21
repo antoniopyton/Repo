@@ -15,6 +15,7 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.stereotype.Component;
 
+import java.time.LocalDate;
 import java.util.List;
 
 @Component
@@ -43,12 +44,12 @@ public class Runner implements CommandLineRunner {
             edificioService.inserisciEdificio(edificio);
 
 
-            Postazione postazione = ctx.getBean(Postazione.class);
-            postazione.setTipoPostazione(TipoPostazione.OPENSPACE);
-            postazione.setEdificio(edificio);
-            postazione.setNumeroOccupanti(20);
-            postazione.setDescrizione("Il nostro open space è un ambiente moderno e versatile, ideale per il lavoro in smart working. ");
-            postazioneService.inserisciPostazione(postazione);
+//            Postazione postazione = ctx.getBean(Postazione.class);
+//            postazione.setTipoPostazione(TipoPostazione.OPENSPACE);
+//            postazione.setEdificio(edificio);
+//            postazione.setNumeroOccupanti(20);
+//            postazione.setDescrizione("Il nostro open space è un ambiente moderno e versatile, ideale per il lavoro in smart working. ");
+//            postazioneService.inserisciPostazione(postazione);
 
 
             Postazione postazione1 = ctx.getBean(Postazione.class);
@@ -92,7 +93,21 @@ public class Runner implements CommandLineRunner {
 //            prenotazione1.setUtente(utente1);
 //            prenotazioneService.inserisciPrenotazione(prenotazione1);
 
-        
+
+            try {
+                prenotazioneService.prenotaPostazione(utente1.getUsername(), postazione1.getId(), LocalDate.now());
+                System.out.println("Prenotazione effettuata con successo!");
+                } catch (Exception e) {
+                System.err.println("Errore durante la prenotazione: " + e.getMessage());
+            }
+
+
+            List<Postazione> postazioni = postazioneService.trovaPostazioniPerTipoEdificio(TipoPostazione.PRIVATO, "Roma");
+            System.out.println("Postazioni trovate:");
+            for (Postazione postazione : postazioni) {
+                System.out.println(postazione);
+
+            }
 
 
     }
