@@ -1,15 +1,17 @@
 package it.nextdevs.mattina.model;
 
+import jakarta.persistence.*;
 import lombok.Data;
 
 import java.time.LocalDate;
 
 @Data
+@Entity
 public class Studente {
 
+    @Id
+    @GeneratedValue
     private int matricola;
-
-    private static int cont;
 
     private String nome;
 
@@ -17,11 +19,15 @@ public class Studente {
 
     private LocalDate dataNascita;
 
-    public Studente(String nome, String cognome, LocalDate dataNascita) {
-        this.nome = nome;
-        this.cognome = cognome;
-        this.dataNascita = dataNascita;
-        cont++;
-        matricola = cont;
-    }
+    @ManyToOne
+    @JoinColumn(name = "aula_id")
+    private Aula aula;
+
+
+//    public Studente(String nome, String cognome, LocalDate dataNascita) {
+//        this.nome = nome;
+//        this.cognome = cognome;
+//        this.dataNascita = dataNascita;
+//    }
+
 }

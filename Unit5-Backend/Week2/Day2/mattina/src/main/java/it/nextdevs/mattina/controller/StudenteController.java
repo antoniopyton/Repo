@@ -1,9 +1,12 @@
 package it.nextdevs.mattina.controller;
 
+import it.nextdevs.mattina.DTO.StudenteDto;
 import it.nextdevs.mattina.exceptions.StudenteNonTrovatoException;
 import it.nextdevs.mattina.model.Studente;
 import it.nextdevs.mattina.service.StudenteService;
+import it.nextdevs.mattina.service.StudenteServiceList;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
@@ -18,14 +21,16 @@ public class StudenteController {
 
     @PostMapping("/api/studenti")
     @ResponseStatus(HttpStatus.CREATED)
-    public String saveStudente(@RequestBody Studente studente) {
-        studenteService.saveStudente(studente);
-        return "Studente salvato con successo con matricola: " + studente.getMatricola();
+    public String saveStudente(@RequestBody StudenteDto studenteDto) {
+        return studenteService.saveStudente(studenteDto);
+//        return "Studente salvato con successo con matricola: " + studenteDto.getMatricola();
     }
 
     @GetMapping("/api/studenti")
-    public List<Studente> getAllStudenti() {
-        return studenteService.getAllStudenti();
+    public Page<Studente> getAllStudenti(@RequestParam(defaultValue = "0") int page,
+                                         @RequestParam(defaultValue = "15") int size,
+                                         @RequestParam(defaultValue = "matricola") String sortBy) {
+        return studenteService.getAllStudenti(page, size, sortBy);
     }
 
     @GetMapping("/api/studenti/{matricola}")
@@ -43,8 +48,8 @@ public class StudenteController {
 
     @PutMapping("/api/studenti/{matricola}")
     @ResponseStatus(HttpStatus.OK)
-    public Studente updateStudente(@PathVariable int matricola, @RequestBody Studente studente) throws StudenteNonTrovatoException {
-        return studenteService.updateStudente(matricola, studente);
+    public Studente updateStudente(@PathVariable int matricola, @RequestBody StudenteDto studenteDto) throws StudenteNonTrovatoException {
+        return studenteService.updateStudente(matricola, studenteDto);
     }
 
     @DeleteMapping("/api/studenti/{matricola}")
