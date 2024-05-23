@@ -22,6 +22,8 @@ public class Studente {
 
     private String foto;
 
+    private String email;
+
     @ManyToOne
     @JoinColumn(name = "aula_id")
     @JsonIgnore

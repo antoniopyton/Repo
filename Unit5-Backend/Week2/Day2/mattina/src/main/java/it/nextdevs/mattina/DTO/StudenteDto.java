@@ -1,5 +1,6 @@
 package it.nextdevs.mattina.DTO;
 
+import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
 import lombok.Data;
@@ -20,6 +21,10 @@ public class StudenteDto {
 
     @NotNull
     private int aulaId;
+
+    @Email(regexp = "\"^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\\\.[a-zA-Z]{2,6}$\"")
+    @NotNull
+    private String email;
 
 
 

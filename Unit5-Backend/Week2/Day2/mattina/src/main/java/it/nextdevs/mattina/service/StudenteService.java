@@ -13,6 +13,8 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
+import org.springframework.mail.SimpleMailMessage;
+import org.springframework.mail.javamail.JavaMailSenderImpl;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -23,6 +25,9 @@ import java.util.Optional;
 
 @Service
 public class StudenteService {
+
+    @Autowired
+    private JavaMailSenderImpl javaMailSender;
 
     @Autowired
     private Cloudinary cloudinary;
@@ -38,6 +43,7 @@ public class StudenteService {
         studente.setNome(studenteDto.getNome());
         studente.setCognome(studenteDto.getCognome());
         studente.setDataNascita(studenteDto.getDataNascita());
+        studente.setEmail(studenteDto.getEmail());
 
         Optional<Aula> aulaOptional = aulaRepository.findById(studenteDto.getAulaId());
 
@@ -45,6 +51,8 @@ public class StudenteService {
             Aula aula = aulaOptional.get();
             studente.setAula(aula);
             studenteRepository.save(studente);
+            //Serve per inviare la mail
+            sendMail((studente.getEmail()));
             return "Studente salvato con successo con matricola: " + studente.getMatricola();
 
         } else {
@@ -74,6 +82,7 @@ public class StudenteService {
             studente.setNome(studenteDto.getNome());
             studente.setCognome(studenteDto.getCognome());
             studente.setDataNascita(studenteDto.getDataNascita());
+            studente.setEmail(studenteDto.getEmail());
 
             Optional<Aula> aulaOptional=aulaRepository.findById(studenteDto.getAulaId());
 
@@ -115,6 +124,15 @@ public class StudenteService {
         } else {
             throw new StudenteNonTrovatoException("Studente non trovato con matricola: " + matricola);
         }
+    }
+
+    private void sendMail(String email) {
+        SimpleMailMessage message = new SimpleMailMessage();
+        message.setTo(email);
+        message.setSubject("Registrazione Servizio rest");
+        message.setText("Registrazione al servizio rest avvenuta con successo");
+
+        javaMailSender.send(message);
     }
 
 }

@@ -1,11 +1,10 @@
-package it.nextdevs.mattina.configuration;
+package it.nextdevs.esercizioPomeridiano.configuration;
 
 import com.cloudinary.Cloudinary;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.PropertySource;
-import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSenderImpl;
 
 import java.util.HashMap;
@@ -20,11 +19,13 @@ public class AppConfig {
     public Cloudinary uploader(@Value("${cloudinary.name}") String name,
                                @Value("${cloudinary.apikey}") String apikey,
                                @Value("${cloudinary.secret}") String secret) {
+
         Map<String, String> config = new HashMap<>();
         config.put("cloud_name", name);
         config.put("api_key", apikey);
         config.put("api_secret", secret);
         return new Cloudinary(config);
+
     }
 
     @Bean
@@ -36,7 +37,7 @@ public class AppConfig {
                                                 @Value("${gmail.mail.from.password}" )String password,
                                                 @Value("${gmail.smtp.ssl.enable}" )String ssl,
                                                 @Value("${gmail.smtp.host}" )String host,
-                                                @Value("${gmail.smtp.port}" )String port){
+                                                @Value("${gmail.smtp.port}" )String port) {
 
         JavaMailSenderImpl mailSender = new JavaMailSenderImpl();
         mailSender.setHost(host);
@@ -53,6 +54,7 @@ public class AppConfig {
         props.put("smtp.ssl.enable",ssl);
 
         return mailSender;
+
     }
 
 }
