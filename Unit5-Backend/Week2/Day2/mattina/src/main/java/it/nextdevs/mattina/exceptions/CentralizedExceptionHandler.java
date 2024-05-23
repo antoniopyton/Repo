@@ -22,4 +22,24 @@ public class CentralizedExceptionHandler extends ResponseEntityExceptionHandler 
         return new ResponseEntity<>(e.getMessage(), HttpStatus.NOT_FOUND);
     }
 
+    @ExceptionHandler(AulaNonTrovataException.class)
+    public ResponseEntity<Object> AulaNonTrovatoHandler(AulaNonTrovataException e) {
+        Error error = new Error();
+        error.setMessaggio(e.getMessage());
+        error.setDataErrore(LocalDateTime.now());
+        error.setStatoErrore(HttpStatus.NOT_FOUND);
+
+        return new ResponseEntity<>(error, HttpStatus.NOT_FOUND);
+    }
+
+    @ExceptionHandler(BadRequestException.class)
+    public ResponseEntity<Object> badRequestHandler (BadRequestException e) {
+        Error error = new Error();
+        error.setMessaggio(e.getMessage());
+        error.setDataErrore(LocalDateTime.now());
+        error.setStatoErrore(HttpStatus.BAD_REQUEST);
+
+        return new ResponseEntity<>(error, HttpStatus.BAD_REQUEST);
+    }
+
 }

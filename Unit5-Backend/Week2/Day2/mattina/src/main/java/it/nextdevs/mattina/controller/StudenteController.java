@@ -1,6 +1,7 @@
 package it.nextdevs.mattina.controller;
 
 import it.nextdevs.mattina.DTO.StudenteDto;
+import it.nextdevs.mattina.exceptions.BadRequestException;
 import it.nextdevs.mattina.exceptions.StudenteNonTrovatoException;
 import it.nextdevs.mattina.model.Studente;
 import it.nextdevs.mattina.service.StudenteService;
@@ -8,8 +9,12 @@ import it.nextdevs.mattina.service.StudenteServiceList;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.http.HttpStatus;
+import org.springframework.validation.BindingResult;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
+import java.io.IOException;
 import java.util.List;
 import java.util.Optional;
 
@@ -21,7 +26,12 @@ public class StudenteController {
 
     @PostMapping("/api/studenti")
     @ResponseStatus(HttpStatus.CREATED)
-    public String saveStudente(@RequestBody StudenteDto studenteDto) {
+    public String saveStudente(@RequestBody @Validated StudenteDto studenteDto, BindingResult bindingResult) {
+        if (bindingResult.hasErrors()) {
+            throw new BadRequestException(bindingResult.getAllErrors().
+                    stream().map(objectError -> objectError.getDefaultMessage()).reduce("", ((s, s2) -> s +s2)));
+        }
+
         return studenteService.saveStudente(studenteDto);
 //        return "Studente salvato con successo con matricola: " + studenteDto.getMatricola();
     }
@@ -48,7 +58,12 @@ public class StudenteController {
 
     @PutMapping("/api/studenti/{matricola}")
     @ResponseStatus(HttpStatus.OK)
-    public Studente updateStudente(@PathVariable int matricola, @RequestBody StudenteDto studenteDto) throws StudenteNonTrovatoException {
+    public Studente updateStudente(@PathVariable int matricola, @RequestBody @Validated StudenteDto studenteDto, BindingResult bindingResult) throws StudenteNonTrovatoException {
+        if (bindingResult.hasErrors()) {
+            throw new BadRequestException(bindingResult.getAllErrors().
+                    stream().map(objectError -> objectError.getDefaultMessage()).reduce("", ((s, s2) -> s +s2)));
+        }
+
         return studenteService.updateStudente(matricola, studenteDto);
     }
 
@@ -57,6 +72,13 @@ public class StudenteController {
         studenteService.deleteStudente(matricola);
         return "Studente eliminato con successo con matricola: " + matricola;
     }
+
+
+    @PatchMapping("/api/studente/{matricola}")
+    public String patchFotoStudente(@RequestBody MultipartFile foto, @PathVariable int matricola) throws StudenteNonTrovatoException, IOException {
+        return studenteService.patchFotoStudente(matricola, foto);
+    }
+
 
 //    @GetMapping("/api")
 //    public String benvenuto() {

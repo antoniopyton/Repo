@@ -2,9 +2,12 @@ package it.nextdevs.mattina.controller;
 
 import it.nextdevs.mattina.DTO.AulaDto;
 import it.nextdevs.mattina.exceptions.AulaNonTrovataException;
+import it.nextdevs.mattina.exceptions.BadRequestException;
 import it.nextdevs.mattina.model.Aula;
 import it.nextdevs.mattina.service.AulaService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.validation.BindingResult;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -18,7 +21,12 @@ public class AulaController {
     private AulaService aulaService;
 
     @PostMapping("/api/aule")
-    public String saveAula(@RequestBody AulaDto aulaDto) {
+    public String saveAula(@RequestBody @Validated AulaDto aulaDto, BindingResult bindingResult) {
+        if (bindingResult.hasErrors()) {
+            throw new BadRequestException(bindingResult.getAllErrors().
+                    stream().map(objectError -> objectError.getDefaultMessage()).reduce("", ((s, s2) -> s +s2)));
+        }
+
         return aulaService.saveAula(aulaDto);
     }
 
@@ -39,7 +47,12 @@ public class AulaController {
     }
 
     @PutMapping("/api/aule/{id}")
-    public Aula updateAula(@PathVariable int id,@RequestBody AulaDto aulaDto){
+    public Aula updateAula(@PathVariable int id,@RequestBody @Validated AulaDto aulaDto, BindingResult bindingResult){
+        if (bindingResult.hasErrors()) {
+            throw new BadRequestException(bindingResult.getAllErrors().
+                    stream().map(objectError -> objectError.getDefaultMessage()).reduce("", ((s, s2) -> s +s2)));
+        }
+
         return aulaService.updateAula(id, aulaDto);
     }
 

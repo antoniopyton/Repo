@@ -1,5 +1,6 @@
 package it.nextdevs.mattina.service;
 
+import com.cloudinary.Cloudinary;
 import it.nextdevs.mattina.DTO.StudenteDto;
 import it.nextdevs.mattina.exceptions.AulaNonTrovataException;
 import it.nextdevs.mattina.exceptions.StudenteNonTrovatoException;
@@ -13,12 +14,18 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
 
+import java.io.IOException;
+import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
 
 @Service
 public class StudenteService {
+
+    @Autowired
+    private Cloudinary cloudinary;
 
     @Autowired
     private AulaRepository aulaRepository;
@@ -91,6 +98,20 @@ public class StudenteService {
         if (studenteOptional.isPresent()) {
             studenteRepository.delete(studenteOptional.get());
             return "Studente eliminato con successo con matricola: " + matricola;
+        } else {
+            throw new StudenteNonTrovatoException("Studente non trovato con matricola: " + matricola);
+        }
+    }
+
+    public String patchFotoStudente(int matricola, MultipartFile foto) throws IOException {
+        Optional<Studente> studenteOptional = studenteRepository.findById(matricola);
+
+        if (studenteOptional.isPresent()) {
+            String url = (String) cloudinary.uploader().upload(foto.getBytes(), Collections.emptyMap()).get("url");
+            Studente studente = studenteOptional.get();
+            studente.setFoto(url);
+            studenteRepository.save(studente);
+            return "Studente aggiornato correttamente e foto inviata con matricola: " + matricola;
         } else {
             throw new StudenteNonTrovatoException("Studente non trovato con matricola: " + matricola);
         }

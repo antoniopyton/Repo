@@ -1,5 +1,6 @@
 package it.nextdevs.mattina.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.Data;
 
@@ -19,8 +20,11 @@ public class Studente {
 
     private LocalDate dataNascita;
 
+    private String foto;
+
     @ManyToOne
     @JoinColumn(name = "aula_id")
+    @JsonIgnore
     private Aula aula;
 
 
