@@ -1,5 +1,6 @@
 package it.nextdevs.progettoSettimanale.exceptions;
 
+import it.nextdevs.progettoSettimanale.model.Error;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ExceptionHandler;
@@ -10,7 +11,7 @@ import java.time.LocalDateTime;
 public class CentralizedExceptionHandler extends ResponseEntityExceptionHandler {
 
     @ExceptionHandler(DipendenteNonTrovatoException.class)
-    public ResponseEntity<Object> AutoreNonTrovatoHandler(DipendenteNonTrovatoException e) {
+    public ResponseEntity<Object> DipendenteNonTrovatoHandler(DipendenteNonTrovatoException e) {
         Error error = new Error();
         error.setMessaggio(e.getMessage());
         error.setDataErrore(LocalDateTime.now());

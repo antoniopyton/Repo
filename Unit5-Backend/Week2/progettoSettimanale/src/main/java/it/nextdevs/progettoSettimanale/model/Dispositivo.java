@@ -1,12 +1,13 @@
 package it.nextdevs.progettoSettimanale.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import it.nextdevs.progettoSettimanale.enums.StatoDispositivo;
 import jakarta.persistence.*;
 import lombok.Data;
 
 @Data
 @Entity
-@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
+@Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
 public class Dispositivo {
 
     @Id
@@ -22,6 +23,7 @@ public class Dispositivo {
 
     @ManyToOne
     @JoinColumn(name="dipendente_id")
+    @JsonIgnore
     private Dipendente dipendente;
 
 }

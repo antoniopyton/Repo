@@ -71,7 +71,7 @@ public class DipendenteService {
             dipendenteRepository.save(dipendente);
             return "Dipendente aggiornato correttamente e Immagine profilo inviata con id: " + id;
         } else {
-            throw new DipendenteNonTrovatoException("Dipendente non trovato con matricola: " + id);
+            throw new DipendenteNonTrovatoException("Dipendente non trovato con id: " + id);
         }
     }
 

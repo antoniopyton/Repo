@@ -39,7 +39,7 @@ public class DipendenteController {
         return dipendenteService.getDipendenti();
     }
 
-    @PutMapping("/dipendenti/{id}")
+    @GetMapping("/dipendenti/{id}")
     public Dipendente getDipendenteById(@PathVariable int id) throws DipendenteNonTrovatoException {
         Optional<Dipendente> dipendenteOpt = dipendenteService.getDipendenteById(id);
 
@@ -71,6 +71,8 @@ public class DipendenteController {
     public String deleteAutore(@PathVariable int id) throws DipendenteNonTrovatoException {
         return dipendenteService.eliminaDipendente(id);
     }
+
+
 
 
 }
