@@ -1,15 +1,12 @@
-package it.nextdevs.progettoSettimanale.controller;
+package nextdevs.esercizioPomeridiano.controller;
 
-import it.nextdevs.progettoSettimanale.DTO.DispositivoDto;
-import it.nextdevs.progettoSettimanale.exceptions.BadRequestException;
-import it.nextdevs.progettoSettimanale.exceptions.DipendenteNonTrovatoException;
-import it.nextdevs.progettoSettimanale.exceptions.DispositivoNonTrovatoException;
-import it.nextdevs.progettoSettimanale.model.*;
-import it.nextdevs.progettoSettimanale.repository.ComputerRepository;
-import it.nextdevs.progettoSettimanale.repository.SmartphoneRepository;
-import it.nextdevs.progettoSettimanale.repository.TabletRepository;
-import it.nextdevs.progettoSettimanale.service.DipendenteService;
-import it.nextdevs.progettoSettimanale.service.DispositivoService;
+import nextdevs.esercizioPomeridiano.DTO.DispositivoDto;
+import nextdevs.esercizioPomeridiano.exceptions.BadRequestException;
+import nextdevs.esercizioPomeridiano.exceptions.DipendenteNonTrovatoException;
+import nextdevs.esercizioPomeridiano.exceptions.DispositivoNonTrovatoException;
+import nextdevs.esercizioPomeridiano.model.*;
+import nextdevs.esercizioPomeridiano.service.DipendenteService;
+import nextdevs.esercizioPomeridiano.service.DispositivoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -91,15 +88,6 @@ public class DispositivoController {
         }
     }
 
-//    @PutMapping("//{id}")
-//    public Post updatePost(@PathVariable int id, @RequestBody @Validated PostDto postDto, BindingResult bindingResult) throws PostNonTrovatoException{
-//        if (bindingResult.hasErrors()) {
-//            throw new BadRequestException(bindingResult.getAllErrors().
-//                    stream().map(objectError -> objectError.getDefaultMessage()).reduce("", ((s, s2) -> s +s2)));
-//        }
-//
-//        return postService.updatePost(id, postDto);
-//    }
 
     @PutMapping("/computer/{id}")
     public ResponseEntity<Object> updateComputer(@PathVariable int id, @RequestBody @Validated DispositivoDto dispositivoDto, BindingResult bindingResult) throws DispositivoNonTrovatoException {
