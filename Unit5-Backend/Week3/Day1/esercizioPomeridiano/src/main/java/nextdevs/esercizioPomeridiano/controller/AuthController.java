@@ -9,6 +9,7 @@ import nextdevs.esercizioPomeridiano.service.DipendenteService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.validation.BindingResult;
+import org.springframework.validation.ObjectError;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -30,7 +31,7 @@ public class AuthController {
     public String salvaDipendente(@RequestBody @Validated DipendenteDto dipendenteDto, BindingResult bindingResult) {
         if (bindingResult.hasErrors()) {
             throw new BadRequestException(bindingResult.getAllErrors().
-                    stream().map(objectError -> objectError.getDefaultMessage()).reduce("", ((s, s2) -> s +s2)));
+                    stream().map(ObjectError::getObjectName).reduce("", ((s, s2) -> s +s2)));
         }
 
         return dipendenteService.saveDipendente(dipendenteDto);
@@ -41,7 +42,7 @@ public class AuthController {
     public String login(@RequestBody @Validated DipendenteLoginDto dipendenteLoginDto, BindingResult bindingResult) throws DipendenteNonTrovatoException {
         if (bindingResult.hasErrors()) {
             throw new BadRequestException(bindingResult.getAllErrors().stream()
-                    .map(error -> error.getDefaultMessage()).reduce("", (s, s2) -> s + s2 ));
+                    .map(ObjectError::getObjectName).reduce("", (s, s2) -> s + s2 ));
         }
 
         return authService.authenticateUserAndCreateToken(dipendenteLoginDto);
